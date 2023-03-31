@@ -15,6 +15,8 @@ class CreateFamilieledensTable extends Migration
     {
         Schema::create('familieledens', function (Blueprint $table) {
             $table->id();
+            $table->string('firstname');
+            $table->date('geboortedatum');
             $table->timestamps();
         });
     }

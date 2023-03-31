@@ -5,6 +5,6 @@
         <a href="/families/{{$familie['id']}}"> {{$familie->lastname}}</a>
        </h2>
        <p>{{$familie->address}}</p>
-       <x-familie-leden />
+       <x-familie-leden {{-- :familieleden="$familie->familieleden"--}}/>
 </div>
 

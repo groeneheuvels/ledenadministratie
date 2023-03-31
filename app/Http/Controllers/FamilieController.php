@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Familie;
+use App\Models\Familieleden;
 
 class FamilieController extends Controller
 {
@@ -11,7 +12,9 @@ class FamilieController extends Controller
     public function index()
     {
         return view('families.index', [
-            'families' => Familie::latest()->paginate(6)
+            'families' => Familie::latest()->paginate(6),
+
+
         ]);
     }
 }

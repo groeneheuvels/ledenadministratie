@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Boekjaar;
 use App\Models\User;
 use App\Models\Familie;
-use App\Models\Familielid;
+use App\Models\Familieleden;
 use App\Models\Leeftijdscategorie;
 use App\Models\Lidsoort;
 use Illuminate\Database\Seeder;
@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         User::factory(2)->create();
 
         Familie::factory(10)->create();
+
+        Familieleden::factory(3)->create();
 
         Boekjaar::create([
             'jaartal' => '2022',

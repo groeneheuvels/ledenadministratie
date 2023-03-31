@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class FamilielidFactory extends Factory
+class FamilieledenFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,7 +14,8 @@ class FamilielidFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'firstname' => $this->faker->firstName(),
+            'geboortedatum' => $this->faker->dateTimeThisCentury()
         ];
     }
 }
