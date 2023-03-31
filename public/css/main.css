@@ -104,3 +104,7 @@ footer{
 .familie-kaart{
   border: 10px solid black;
 }
+
+.create-formulier{
+  border: 10px solid var(--kleur-header-footer);
+}

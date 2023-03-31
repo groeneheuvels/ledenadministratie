@@ -23,19 +23,16 @@ return view('welcome');
 // All families
 Route::get('/', [FamilieController::class, 'index']);
 
+
+// Show Create Familie Form
+Route::get('/families/create', [FamilieController::class, 'create']);
+
+// Store Familie Data
+Route::post('/families', [FamilieController::class, 'store']);
+
+
+
+
+
+// Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);
-
-
-
-
-
-/*Route::get('/search', function (Request $request) {
-return $request->naam . ' ' . $request->adres;
-});*/
-
-/*Route::get('/', function () {
-return view('families/index', [
-'heading' => 'Familie overzicht',
-'families' => Familie::all()
-]);
-});*/

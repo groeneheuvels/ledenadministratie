@@ -9,6 +9,9 @@ class Familie extends Model
 {
     use HasFactory;
 
+    //alternatieve optie is in AppServiceProvider.php de unguard in te stellen
+    protected $fillable = ['lastname', 'address'];
+
     public function scopeFilter($query, array $filters)
     {
         if ($filters['search'] ?? false) {
