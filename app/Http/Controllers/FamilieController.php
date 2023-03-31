@@ -17,4 +17,13 @@ class FamilieController extends Controller
 
         ]);
     }
+
+    // Show single Familie
+
+    public function show(Familie $familie)
+    {
+        return view('families/show', [
+            'familie' => $familie
+        ]);
+    }
 }

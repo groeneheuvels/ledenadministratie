@@ -23,21 +23,8 @@ return view('welcome');
 // All families
 Route::get('/', [FamilieController::class, 'index']);
 
-Route::get('/families/{familie}', function (Familie $familie) {
+Route::get('/families/{familie}', [FamilieController::class, 'show']);
 
-    return view('families/show', [
-        'familie' => $familie
-    ]);
-
-
-});
-
-// Single Familie
-//Route::get('/families/{familie}', [FamilieController::class, 'show']);
-
-/*Route::get('/families/{id}', function ($id) {
-return response('Post' . ' ' . $id);
-})->where('id', '[0-9]+');*/
 
 
 
