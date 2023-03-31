@@ -13,7 +13,8 @@ class Familie extends Model
     {
         if ($filters['search'] ?? false) {
             $query->where('lastname', 'like', '%' . request('search') . '%')
-                ->orWhere('address', 'like', '%' . request('search') . '%');
+                ->orWhere('address', 'like', '%' . request('search') . '%')
+                /*->orWhere('familielid', 'like', '%' . request('search') . '%')*/;
         }
     }
 }
