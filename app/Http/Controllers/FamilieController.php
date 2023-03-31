@@ -11,10 +11,9 @@ class FamilieController extends Controller
 
     public function index()
     {
+        //dd(request('lastname'));
         return view('families.index', [
-            'families' => Familie::latest()->paginate(6),
-
-
+            'families' => Familie::latest()->filter(request(['search']))->paginate(6)
         ]);
     }
 

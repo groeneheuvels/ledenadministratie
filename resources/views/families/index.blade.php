@@ -1,4 +1,5 @@
 <x-layout>
+  @include('partials._search')
   <h1>Families</h1>
 
   @unless (count($families) == 0)
