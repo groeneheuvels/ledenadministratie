@@ -1,0 +1,106 @@
+/*variabelen, hele website*/
+:root {
+  --kleur-header-footer: hsl(0, 0%, 33%);
+  --kleur-groen: rgb(161 201 191);
+  --kleur-achtergrond: rgb(179 186 192);
+}
+
+body {
+  background: var(--kleur-achtergrond);
+}
+header {
+  display: flex;
+  height: 100%;
+  font-size: 2rem;
+  background-color: var(--kleur-header-footer);
+  color: var(--kleur-groen);
+  justify-content: center;
+  text-align: center;
+}
+
+header a, 
+header a:visited {
+  color: var(--kleur-groen);
+}
+
+.menu,
+.menu a,
+.menu a:visited {
+  color: var(--kleur-groen);
+}
+
+
+.flex-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-evenly;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  background-color: var(--kleur-header-footer);
+  color: var(--kleur-groen);
+}
+.menu li {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*container grid, hele website*/
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 0.25fr 6fr 0.5fr;
+  gap: 0px;
+}
+
+/* header */
+.container-grid-item:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+/*nav*/
+.container-grid-item:nth-child(2) {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+/*main*/
+.container-grid-item:nth-child(3) {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+/*footer*/
+.container-grid-item:nth-child(4) {
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 3;
+  grid-row-end: -1;
+}
+
+ 
+
+
+footer{
+  height: 100%;
+  background-color: var(--kleur-header-footer);
+  color: var(--kleur-groen);
+}
+
+.familie-kaart{
+  border: 10px solid black;
+}
