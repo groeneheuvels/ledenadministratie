@@ -17,16 +17,34 @@
                 <x-flash-message />
         <header><h1>
             <a href="/">Ledenadministratie</a> </h1>
-           
+            @auth
+            {{-- <h2>Welkom {{auth()->user()->name}}</h2> --}}
+           @endauth
         </header>
         </div>
         <div class="container-grid-item">
         <nav class="flex-menu">
             <ul class="menu">
+                @auth
                 <li><a
                     href="/families/create"
                     >Familie aanmaken</a
                 ></li>
+                <li><a
+                    href="/families/manage"
+                    >Familie bewerken</a
+                ></li>
+                <li>
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <div class="knop">
+                            <button type="submit">
+                               Uitloggen 
+                            </button>
+                        </div>
+                    </form>
+                </li>
+                @endauth
                 <li><a
                     href="/login"
                     >Admin inlog</a

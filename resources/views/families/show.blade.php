@@ -1,6 +1,7 @@
 <x-layout>
   @include('partials._search')
   <x-familie-kaart :familie="$familie" />
+  @auth
   <div class= "knop">
     <a href="/families/{{$familie->id}}/edit">Bewerken</a>
   </div>
@@ -13,4 +14,5 @@
     </button>
   </div>
   </form>
+  @endauth
   </x-layout>
