@@ -36,7 +36,8 @@ Route::get('/families/{familie}/edit', [FamilieController::class, 'edit']);
 // Update Familie
 Route::put('/families/{familie}', [FamilieController::class, 'update']);
 
-
+// Delete Familie
+Route::delete('/families/{familie}', [FamilieController::class, 'destroy']);
 
 // Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);

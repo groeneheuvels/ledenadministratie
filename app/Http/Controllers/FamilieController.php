@@ -55,7 +55,7 @@ class FamilieController extends Controller
         return view('families.edit', ['familie' => $familie]);
     }
 
-    //Update Familie Datat
+    //Update Familie Data
     public function update(Request $request, Familie $familie)
     {
         $formFields = $request->validate([
@@ -66,6 +66,13 @@ class FamilieController extends Controller
         $familie->update($formFields);
 
         return back()->with('message', 'Familie bewerking succesvol');
+    }
+
+    // Delete Familie Data
+    public function destroy(Familie $familie)
+    {
+        $familie->delete();
+        return redirect('/')->with('message', 'Familie verwijderd');
     }
 
 
