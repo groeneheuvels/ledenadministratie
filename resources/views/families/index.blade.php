@@ -18,6 +18,7 @@
   @endunless
 </div>
 <div class = "pagination">
+  {{-- is nu nog engels --}}
   {{$families->links()}}
 </div>
 

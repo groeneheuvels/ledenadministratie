@@ -14,8 +14,9 @@ class FamilieController extends Controller
     public function index()
     {
         //dd(request('lastname'));
+        // overweeg ipg simplePaginate gewoon paginate te doen, dan wel opmaak aanpassen 2:43:07
         return view('families.index', [
-            'families' => Familie::latest()->filter(request(['search']))->paginate(2)
+            'families' => Familie::latest()->filter(request(['search']))->SimplePaginate(6)
         ]);
     }
 
