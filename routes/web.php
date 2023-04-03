@@ -3,6 +3,7 @@
 use App\Models\Familie;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FamilieController;
 
 /*
@@ -41,3 +42,9 @@ Route::delete('/families/{familie}', [FamilieController::class, 'destroy']);
 
 // Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);
+
+//Show Register Create Form
+Route::get('/register', [UserController::class, 'create']);
+
+// Create New User
+Route::post('/users', [UserController::class, 'store']);

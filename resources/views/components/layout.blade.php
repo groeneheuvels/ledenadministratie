@@ -27,8 +27,14 @@
                     href="/families/create"
                     >Familie aanmaken</a
                 ></li>
-                <li>menu item 2</li>
-                <li>menu item 3</li>
+                <li><a
+                    href="/login"
+                    >Admin inlog</a
+                ></li>
+                <li><a
+                    href="/register"
+                    >Admin account aanmaken</a
+                ></li>
             </ul>
         </nav>
         </div>
