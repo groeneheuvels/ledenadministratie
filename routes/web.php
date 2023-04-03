@@ -30,7 +30,11 @@ Route::get('/families/create', [FamilieController::class, 'create']);
 // Store Familie Data
 Route::post('/families', [FamilieController::class, 'store']);
 
+// Show Edit Form
+Route::get('/families/{familie}/edit', [FamilieController::class, 'edit']);
 
+// Update Familie
+Route::put('/families/{familie}', [FamilieController::class, 'update']);
 
 
 

@@ -36,12 +36,12 @@
                 placeholder="Example: Remote, Boston MA, etc"
                 />
         </div> --}}
-        <div >
-            <button>
-                Opslaan
-             </button>
-             <a href="/" > Terug </a>
-        </div>
+        <button class="knop">
+            Opslaan
+         </button>
+         <div class="knop">
+         <a href="/" > Terug </a>
+    </div>
     </form>
 </div>
 </x-layout>

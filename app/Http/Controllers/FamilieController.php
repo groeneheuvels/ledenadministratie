@@ -39,14 +39,35 @@ class FamilieController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'lastname' => ['required', Rule::unique('families', 'lastname')],
-            'address' => 'required'
+            'lastname' => 'required',
+            'address' => ['required', Rule::unique('families', 'address')]
         ]);
 
         Familie::create($formFields);
 
         return redirect('/')->with('message', 'Nieuwe Familie aangemaakt');
     }
+
+    // Show Edit Form
+    public function edit(Familie $familie)
+    {
+        //dd($familie->address);
+        return view('families.edit', ['familie' => $familie]);
+    }
+
+    //Update Familie Datat
+    public function update(Request $request, Familie $familie)
+    {
+        $formFields = $request->validate([
+            'lastname' => 'required',
+            'address' => 'required'
+        ]);
+
+        $familie->update($formFields);
+
+        return back()->with('message', 'Familie bewerking succesvol');
+    }
+
 
 
 }
