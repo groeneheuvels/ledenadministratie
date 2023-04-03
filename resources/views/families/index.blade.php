@@ -2,6 +2,8 @@
   @include('partials._search')
   <h1>Families</h1>
 
+  <div>
+
   @unless (count($families) == 0)
   
   @foreach ($families as $familie)
@@ -14,6 +16,10 @@
   <p>Geen families gevonden</p>
 
   @endunless
+</div>
+<div class = "pagination">
+  {{$families->links()}}
+</div>
 
 
 </x-layout>
