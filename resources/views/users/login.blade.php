@@ -2,25 +2,11 @@
     <div>
         <div>
             <h2>
-            Registeer
+            Inloggen
             </h2>
-            <p>Maak nieuw admin account</p>
         </div>
-        <form method="POST" action="/users">
+        <form method="POST" action="/users/authenticate">
             @csrf
-            <div>
-                <label for="name">
-                Naam
-                </label>
-                <input
-                type="text"
-                name="name"
-                value="{{old('name')}}""
-                />
-                @error('name')
-                    <p>{{$message}}</p>
-                @enderror
-            </div>
             <div>
                 <label for="email">
                 Email
@@ -47,27 +33,15 @@
                     <p>{{$message}}</p>
                 @enderror
             </div>
-            <div>
-                <label for="password_confirmation">
-                Bevestig wachtwoord
-                </label>
-                <input
-                type="password"
-                name="password_confirmation"
-                />
-                @error('password_confirmation')
-                    <p>{{$message}}</p>
-                @enderror
-            </div>
             <div class="knop">
                 <button type="submit">
-                Registreer
+                Inloggen
                 </button>
             </div>
             <div>
                 <p>
-                Heb je al een account?
-                <a href="/login">Login</a>
+                Nog geen account?
+                <a href="/register">registreer</a>
                 </p>
          </div>
         </form>
