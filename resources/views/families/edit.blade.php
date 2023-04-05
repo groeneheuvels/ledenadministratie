@@ -31,16 +31,7 @@
                         <p>{{$message}}</p>
                     @enderror
             </div>
-            {{-- 
-                linkje voor openklappen extra formulier?
-                <div>
-                <label for="familielid">Nieuw Familielid</label>
-                    <input
-                    type="text"
-                    name="familielid"
-                    placeholder="Example: Remote, Boston MA, etc"
-                    />
-            </div> --}}
+            
             
                 <button class="knop">
                     Opslaan

@@ -6,5 +6,15 @@
        <p>Adres: {{$familie->address}}</p>
 </div>
 
+
+    {{-- 
+        @auth
+        <a
+        href="/familieleden/manage"
+        >Familie bewerken</a> 
+        @endauth
+    --}} 
+
+
 </x-layout>
 

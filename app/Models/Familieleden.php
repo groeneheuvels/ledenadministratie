@@ -9,6 +9,9 @@ class Familieleden extends Model
 {
     use HasFactory;
 
+    //alternatieve optie is in AppServiceProvider.php de unguard in te stellen
+    protected $fillable = ['firstname', 'geboortedatum', 'familie_id'];
+
     protected $table = 'familieledens';
 
     public function familie()

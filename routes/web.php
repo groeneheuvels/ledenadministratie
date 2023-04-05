@@ -25,17 +25,19 @@ return view('welcome');
 // All families
 Route::get('/', [FamilieController::class, 'index']);
 
-// Show familielid
-Route::get('/familieleden/{familielid}', [FamilieledenController::class, 'show']);
-
-
 // Show Create Familie Form
 Route::get('/families/create', [FamilieController::class, 'create'])->middleware('auth');
+
+//Show Create Familielid Form 
+Route::get('/familieleden/create', [FamilieledenController::class, 'create'])->middleware('auth');
 
 // Store Familie Data
 Route::post('/families', [FamilieController::class, 'store'])->middleware('auth');
 
-// Show Edit Form
+//Store Familielid Data
+Route::post('/familieleden', [FamilieledenController::class, 'store'])->middleware('auth');
+
+// Show Edit Familie Form
 Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->middleware('auth');
 
 // Update Familie
@@ -44,8 +46,11 @@ Route::put('/families/{familie}', [FamilieController::class, 'update'])->middlew
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
 
-// Single Familie
+// Show Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);
+
+// Show Single familielid
+Route::get('/familieleden/{familielid}', [FamilieledenController::class, 'show']);
 
 //Show Register Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('auth');

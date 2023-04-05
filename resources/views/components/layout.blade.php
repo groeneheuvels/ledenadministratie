@@ -30,10 +30,6 @@
                     href="/families/create"
                     >Familie aanmaken</a
                 ></li>
-                <li><a
-                    href="/families/manage"
-                    >Familie bewerken</a
-                ></li>
                 <li>
                     <form method="POST" action="/logout">
                         @csrf

@@ -1,3 +1,4 @@
+
 <x-layout>
 <div class="create-formulier">
      <form method="POST" action="/families">
@@ -11,7 +12,7 @@
                 />
                 @error('lastname')
                     <p>{{$message}}</p>
-                    {{-- bericht is in engels evt aanpassen --}}
+                    {{-- bericht is in engels evt aanpassen --}}         
                 @enderror
         </div>
         <div >
@@ -26,22 +27,15 @@
                     <p>{{$message}}</p>
                 @enderror
         </div>
-        {{-- 
-            linkje voor openklappen extra formulier?
-            <div>
-            <label for="familielid">Nieuw Familielid</label>
-                <input
-                type="text"
-                name="familielid"
-                placeholder="Example: Remote, Boston MA, etc"
-                />
-        </div> --}}
         <button class="knop">
             Opslaan
          </button>
          <div class="knop">
          <a href="/" > Terug </a>
     </div>
+
+
     </form>
 </div>
 </x-layout>
+

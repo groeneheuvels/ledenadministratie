@@ -26,10 +26,64 @@ class FamilieledenController extends Controller
 
 
     //Show Create Familielid Form
-    public function create()
+
+
+    public function create(Request $request)
     {
-        return view('familieleden.create');
+        $familie_id = $request->input('familie_id');
+        $familie = Familie::find($familie_id);
+
+        return view('familieleden.create', compact('familie'));
     }
+
+    // Store Familielid Data
+    public function store(Request $request)
+    {
+        $formFields = $request->validate([
+            'firstname' => 'required',
+            'geboortedatum' => 'required'
+        ]);
+
+        $formFields['familie_id'] = $request->input('familie_id');
+
+        Familieleden::create($formFields);
+
+        return redirect('/')->with('message', 'Nieuw Familielid toegevoegd');
+    }
+
+
+
+
+
+
+
+
+
+/*
+// Store Familielid Data
+public function store(Request $request, Familie $familie)
+{
+$formFields = $request->validate([
+'firstname' => 'required',
+'geboortedatum' => 'required'
+]);
+$formFields['familie_id'] = $familie->id;
+Familieleden::create($formFields);
+return redirect('/families/$familie->id')->with('message', 'Familielid aangemaakt');
+//return back()->with('message', 'Familielid aangemaakt');
+}
+// Store Familielid Data advies
+public function store(Request $request)
+{
+$familieId = $request->input('familie_id');
+$familielid = new Familieleden;
+// set the properties of the new familielid
+$familielid->familie_id = $familieId;
+$familielid->save();
+return redirect('/families/' . $familieId);
+}
+*/
+
 
 
 }
