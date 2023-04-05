@@ -21,16 +21,38 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(2)->create();
 
-        User::create([
-            'name' => 'Voorzitter',
+        User::factory()->create([
             'email' => 'info@ledenadministratie.nl',
             'password' => bcrypt('Welkom01'),
         ]);
 
+        $familie_jansen = Familie::factory()->create([
+            'lastname' => 'Jansen',
+        ]);
 
-        Familie::factory(10)->create();
+        Familieleden::factory(3)->create([
+            'familie_id' => $familie_jansen->id
+        ]);
 
-        Familieleden::factory(3)->create();
+        $familie_kooi = Familie::factory()->create([
+            'lastname' => 'Kooi',
+        ]);
+
+        Familieleden::factory(4)->create([
+            'familie_id' => $familie_kooi->id
+        ]);
+
+        $familie_jaspers = Familie::factory()->create([
+            'lastname' => 'Jaspers',
+        ]);
+
+        Familieleden::factory(6)->create([
+            'familie_id' => $familie_jaspers->id
+        ]);
+
+        //Familie::factory(10)->create();
+
+        //Familieleden::factory(3)->create();
 
         Boekjaar::create([
             'jaartal' => '2022',

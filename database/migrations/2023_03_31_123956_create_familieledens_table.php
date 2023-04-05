@@ -15,6 +15,7 @@ class CreateFamilieledensTable extends Migration
     {
         Schema::create('familieledens', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('familie_id')->constrained()->onDelete('cascade');
             $table->string('firstname');
             $table->date('geboortedatum');
             $table->timestamps();
