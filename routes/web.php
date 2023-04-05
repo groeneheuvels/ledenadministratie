@@ -5,6 +5,7 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FamilieController;
+use App\Http\Controllers\FamilieledenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,9 @@ return view('welcome');
 
 // All families
 Route::get('/', [FamilieController::class, 'index']);
+
+// Show familielid
+Route::get('/familieleden/{familielid}', [FamilieledenController::class, 'show']);
 
 
 // Show Create Familie Form

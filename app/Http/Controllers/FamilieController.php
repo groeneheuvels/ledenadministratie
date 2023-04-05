@@ -68,6 +68,7 @@ class FamilieController extends Controller
         return back()->with('message', 'Familie bewerking succesvol');
     }
 
+
     // Delete Familie Data
     public function destroy(Familie $familie)
     {
