@@ -26,34 +26,34 @@ Route::get('/', [FamilieController::class, 'index']);
 
 
 // Show Create Familie Form
-Route::get('/families/create', [FamilieController::class, 'create']);
+Route::get('/families/create', [FamilieController::class, 'create'])->middleware('auth');
 
 // Store Familie Data
-Route::post('/families', [FamilieController::class, 'store']);
+Route::post('/families', [FamilieController::class, 'store'])->middleware('auth');
 
 // Show Edit Form
-Route::get('/families/{familie}/edit', [FamilieController::class, 'edit']);
+Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->middleware('auth');
 
 // Update Familie
-Route::put('/families/{familie}', [FamilieController::class, 'update']);
+Route::put('/families/{familie}', [FamilieController::class, 'update'])->middleware('auth');
 
 // Delete Familie
-Route::delete('/families/{familie}', [FamilieController::class, 'destroy']);
+Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
 
 // Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);
 
 //Show Register Create Form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('auth');
 
 // Create New User
-Route::post('/users', [UserController::class, 'store']);
+Route::post('/users', [UserController::class, 'store'])->middleware('auth');
 
 // Log User out
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 // Show Login Form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 //Log In User
 Route::post('users/authenticate', [UserController::class, 'authenticate']);

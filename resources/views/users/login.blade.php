@@ -39,11 +39,8 @@
                 </button>
             </div>
             <div>
-                <p>
-                Nog geen account?
-                <a href="/register">registreer</a>
-                </p>
-         </div>
+                <p>Inlog aanvragen? Stuur een <a href="mailto:info@ledenadministratie.nl">email</a> naar de ledenadministratie</p>
+            </div>
         </form>
     </div>
 </x-layout>
