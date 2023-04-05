@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Familieleden;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Familie extends Model
 {
@@ -20,4 +21,11 @@ class Familie extends Model
                 /*->orWhere('familielid', 'like', '%' . request('search') . '%')*/;
         }
     }
+
+    // Relationship to Familieleden
+    public function familieleden()
+    {
+        return $this->hasMany(Familieleden::class . 'familie_id');
+    }
+
 }

@@ -50,9 +50,6 @@ class DatabaseSeeder extends Seeder
             'familie_id' => $familie_jaspers->id
         ]);
 
-        //Familie::factory(10)->create();
-
-        //Familieleden::factory(3)->create();
 
         Boekjaar::create([
             'jaartal' => '2022',

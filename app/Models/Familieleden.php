@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Familieleden extends Model
 {
     use HasFactory;
+
+    public function familie()
+    {
+        return $this->belongsTo(Familie::class, 'familie_id');
+    }
 }
