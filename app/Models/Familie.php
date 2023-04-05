@@ -25,7 +25,7 @@ class Familie extends Model
     // Relationship to Familieleden
     public function familieleden()
     {
-        return $this->hasMany(Familieleden::class . 'familie_id');
+        return $this->hasMany(Familieleden::class, 'familie_id');
     }
 
 }

@@ -6,6 +6,6 @@
        </h2>
        <h3>Berekende Contributie bedrag</h3>
        <p>{{$familie->address}}</p>
-       <x-familie-leden {{-- :familieleden="$familie->familieleden"--}}/>
+       <x-familie-leden :familieleden="$familie->familieleden"/>
 </div>
 

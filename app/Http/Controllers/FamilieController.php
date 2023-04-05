@@ -75,6 +75,14 @@ class FamilieController extends Controller
         return redirect('/')->with('message', 'Familie verwijderd');
     }
 
+    // Relationship to familieleden
+    public function familierelatie($id)
+    {
+        $familie = Familie::findOrFail($id);
+        $familieleden = $familie->familieleden()->get();
+        return view('components.familie-kaart', compact('familie', 'familieleden'));
+    }
+
 
 
 }
