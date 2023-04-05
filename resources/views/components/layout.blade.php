@@ -17,18 +17,24 @@
                 <x-flash-message />
         <header><h1>
             <a href="/">Ledenadministratie</a> </h1>
-            @auth
-            <h2>Welkom {{auth()->user()->name}}</h2>
-           @endauth
+            
         </header>
         </div>
         <div class="container-grid-item">
         <nav class="flex-menu">
             <ul class="menu">
                 @auth
+                <li>
+                    <p>Welkom {{auth()->user()->name}}</p>
+                </li>
                 <li><a
                     href="/families/create"
                     >Familie aanmaken</a
+                ></li>
+                
+                <li><a
+                    href="/register"
+                    >Admin account aanmaken</a
                 ></li>
                 <li>
                     <form method="POST" action="/logout">
@@ -40,10 +46,6 @@
                         </div>
                     </form>
                 </li>
-                <li><a
-                    href="/register"
-                    >Admin account aanmaken</a
-                ></li>
                 @endauth
                 @guest
                 <li><a

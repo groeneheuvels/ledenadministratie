@@ -50,6 +50,38 @@ class DatabaseSeeder extends Seeder
             'familie_id' => $familie_jaspers->id
         ]);
 
+        $familie_pieters = Familie::factory()->create([
+            'lastname' => 'Pieters',
+        ]);
+
+        Familieleden::factory(2)->create([
+            'familie_id' => $familie_pieters->id
+        ]);
+
+
+        $familie_devries = Familie::factory()->create([
+            'lastname' => 'de Vries',
+        ]);
+
+        Familieleden::factory(2)->create([
+            'familie_id' => $familie_devries->id
+        ]);
+
+        $familie_vanrijn = Familie::factory()->create([
+            'lastname' => 'van Rijn',
+        ]);
+
+        Familieleden::factory(3)->create([
+            'familie_id' => $familie_vanrijn->id
+        ]);
+
+        $familie_deboer = Familie::factory()->create([
+            'lastname' => 'de Boer',
+        ]);
+
+        Familieleden::factory(3)->create([
+            'familie_id' => $familie_deboer->id
+        ]);
 
         Boekjaar::create([
             'jaartal' => '2022',
