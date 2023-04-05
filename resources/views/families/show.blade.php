@@ -1,5 +1,5 @@
 <x-layout>
-  @include('partials._search')
+    <h2>Familie</h2>
   <x-familie-kaart :familie="$familie" />
   @auth
   <div class= "knop">

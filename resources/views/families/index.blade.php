@@ -1,8 +1,8 @@
 <x-layout>
-  @include('partials._search')
-  <h1>Families</h1>
 
-  <div>
+  <h2>Families</h2>
+
+  <div class="kaart-container">
 
   @unless (count($families) == 0)
   

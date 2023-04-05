@@ -53,6 +53,9 @@
                     >Admin inlog</a
                 ></li> 
                 @endguest
+                <li>
+                    @include('partials._search')
+                </li>
             </ul>
         </nav>
         </div>
