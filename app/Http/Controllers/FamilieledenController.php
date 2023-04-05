@@ -24,9 +24,7 @@ class FamilieledenController extends Controller
         ]);
     }
 
-
     //Show Create Familielid Form
-
 
     public function create(Request $request)
     {
@@ -51,6 +49,22 @@ class FamilieledenController extends Controller
         return redirect('/')->with('message', 'Nieuw Familielid toegevoegd');
     }
 
+    // Show Edit Familielid  Form
+    public function edit(Familieleden $familielid, Familie $familie)
+    {
+        //dd($familielid->firstname);
+
+        $familie = Familie::findOrFail($familielid->familie_id);
+        /*dd([
+        'familielid' => $familielid,
+        'familie' => $familie,
+        ]);*/
+
+        return view('familieleden.edit', [
+            'familielid' => $familielid,
+            'familie' => $familie
+        ]);
+    }
 
 
 

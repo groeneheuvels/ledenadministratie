@@ -28,11 +28,11 @@ Route::get('/', [FamilieController::class, 'index']);
 // Show Create Familie Form
 Route::get('/families/create', [FamilieController::class, 'create'])->middleware('auth');
 
-//Show Create Familielid Form 
-Route::get('/familieleden/create', [FamilieledenController::class, 'create'])->middleware('auth');
-
 // Store Familie Data
 Route::post('/families', [FamilieController::class, 'store'])->middleware('auth');
+
+//Show Create Familielid Form 
+Route::get('/familieleden/create', [FamilieledenController::class, 'create'])->middleware('auth');
 
 //Store Familielid Data
 Route::post('/familieleden', [FamilieledenController::class, 'store'])->middleware('auth');
@@ -42,6 +42,9 @@ Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->midd
 
 // Update Familie
 Route::put('/families/{familie}', [FamilieController::class, 'update'])->middleware('auth');
+
+// Show Edit Familielid Form
+Route::get('/familieleden/{familielid}/edit', [FamilieledenController::class, 'edit'])->middleware('auth');
 
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
