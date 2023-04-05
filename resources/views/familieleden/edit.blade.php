@@ -4,7 +4,7 @@
         <p>Bewerk: {{$familielid->firstname}} {{$familie->lastname}}</p>
     </div>
     <div class="edit-formulier">
-         <form method="POST" action="/familieleden/{familielid}/edit">
+         <form method="POST" action="/familieleden/{{$familielid->id}}">
             @csrf
             @method('PUT')
             <div >

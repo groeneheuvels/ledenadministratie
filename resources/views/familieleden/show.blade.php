@@ -8,5 +8,14 @@
 <div class= "knop">
     <a href="/familieleden/{{$familielid->id}}/edit">Bewerk Familielid</a>
   </div>
+  <form method="POST" action="/familieleden/{{$familielid->id}}">
+    @csrf
+    @method('DELETE')
+    <div class="knop">
+      <button>
+        Delete Familielid {{$familielid->firstname}} {{$familie->lastname}}
+      </button>
+    </div>
+    </form>
 </x-layout>
 

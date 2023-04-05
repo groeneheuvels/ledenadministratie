@@ -46,8 +46,14 @@ Route::put('/families/{familie}', [FamilieController::class, 'update'])->middlew
 // Show Edit Familielid Form
 Route::get('/familieleden/{familielid}/edit', [FamilieledenController::class, 'edit'])->middleware('auth');
 
+// Update Familielid
+Route::put('/familieleden/{familielid}', [FamilieledenController::class, 'update'])->middleware('auth');
+
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
+
+// Delete Familielid
+Route::delete('/familieleden/{familielid}', [FamilieledenController::class, 'destroy'])->middleware('auth');
 
 // Show Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);

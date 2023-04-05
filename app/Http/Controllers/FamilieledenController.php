@@ -66,37 +66,26 @@ class FamilieledenController extends Controller
         ]);
     }
 
+    //Update Familielid Data
+    public function update(Request $request, Familieleden $familielid)
+    {
+        $formFields = $request->validate([
+            'firstname' => 'required',
+            'geboortedatum' => 'required'
+        ]);
 
+        $familielid->update($formFields);
 
+        return back()->with('message', 'Familielid bewerking succesvol');
+    }
 
+    // Delete Familielid Data
+    public function destroy(Familieleden $familielid)
+    {
+        $familielid->delete();
+        return redirect('/')->with('message', 'Familielid verwijderd');
+    }
 
-
-
-
-/*
-// Store Familielid Data
-public function store(Request $request, Familie $familie)
-{
-$formFields = $request->validate([
-'firstname' => 'required',
-'geboortedatum' => 'required'
-]);
-$formFields['familie_id'] = $familie->id;
-Familieleden::create($formFields);
-return redirect('/families/$familie->id')->with('message', 'Familielid aangemaakt');
-//return back()->with('message', 'Familielid aangemaakt');
-}
-// Store Familielid Data advies
-public function store(Request $request)
-{
-$familieId = $request->input('familie_id');
-$familielid = new Familieleden;
-// set the properties of the new familielid
-$familielid->familie_id = $familieId;
-$familielid->save();
-return redirect('/families/' . $familieId);
-}
-*/
 
 
 
