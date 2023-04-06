@@ -11,6 +11,7 @@ class Leeftijdscategorie extends Model
     use HasFactory;
 
     protected $table = 'leeftijdscategorie';
+    protected $fillable = ['omschrijving', 'ondergrens', 'bovengrens', 'kortingspercentage'];
 
     // Relatie tot contributies
     public function contributies()

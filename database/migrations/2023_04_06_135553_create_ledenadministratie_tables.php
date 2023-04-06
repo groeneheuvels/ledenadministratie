@@ -24,19 +24,25 @@ class CreateLedenadministratieTables extends Migration
 
         Schema::create('leeftijdscategorie', function (Blueprint $table) {
             $table->id();
+            $table->string('omschrijving');
+            $table->integer('ondergrens');
+            $table->integer('bovengrens');
+            $table->integer('kortingspercentage');
             $table->timestamps();
         });
 
         Schema::create('lidsoort', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('omschrijving');
+            $table->integer('kortingspercentage');
         });
 
         Schema::create('familielid', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('familie_id')->constrained('familie')->onDelete('cascade');
-            $table->foreignId('lidsoort_id')->nullable()->constrained('familie')->onDelete('set null');
+            $table->foreignId('lidsoort_id')->nullable()->constrained('lidsoort')->onDelete('set null');
             $table->string('firstname');
             $table->date('geboortedatum');
         });
@@ -45,7 +51,7 @@ class CreateLedenadministratieTables extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('contributiebedrag');
-            $table->foreignId('familielid_id')->nullable()->constrained('familie')->onDelete('set null');
+            $table->foreignId('familielid_id')->nullable()->constrained('familielid')->onDelete('set null');
             $table->foreignId('boekjaar_id')->constrained('boekjaar')->onDelete('cascade');
             $table->foreignId('lidsoort_id')->nullable()->constrained('lidsoort')->onDelete('set null');
             $table->foreignId('leeftijdscategorie_id')->nullable()->constrained('leeftijdscategorie')->onDelete('set null');
