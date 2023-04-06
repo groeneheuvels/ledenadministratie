@@ -17,8 +17,13 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+
+
     public function run()
     {
+
+
         User::factory(2)->create();
 
         User::factory()->create([
@@ -132,5 +137,7 @@ class DatabaseSeeder extends Seeder
             'omschrijving' => 'competitie',
             'contributiefactor' => '2'
         ]);
+
+        $this->call(ContributieSeeder::class);
     }
 }
