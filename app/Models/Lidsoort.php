@@ -11,7 +11,7 @@ class Lidsoort extends Model
     use HasFactory;
 
     protected $table = 'lidsoort';
-    protected $fillable = ['omschrijving', 'kortingspercentage'];
+    protected $fillable = ['omschrijving', 'contributiefactor'];
 
     // Relatie tot familieleden
     public function familieleden()

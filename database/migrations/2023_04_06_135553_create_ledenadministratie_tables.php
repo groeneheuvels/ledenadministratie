@@ -35,7 +35,7 @@ class CreateLedenadministratieTables extends Migration
             $table->id();
             $table->timestamps();
             $table->string('omschrijving');
-            $table->integer('kortingspercentage');
+            $table->float('contributiefactor');
         });
 
         Schema::create('familielid', function (Blueprint $table) {
