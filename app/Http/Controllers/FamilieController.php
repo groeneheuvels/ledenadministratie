@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Familie;
-use App\Models\Familieleden;
+use App\Models\Familielid;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 

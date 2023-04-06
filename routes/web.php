@@ -5,7 +5,7 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FamilieController;
-use App\Http\Controllers\FamilieledenController;
+use App\Http\Controllers\FamilielidController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +32,10 @@ Route::get('/families/create', [FamilieController::class, 'create'])->middleware
 Route::post('/families', [FamilieController::class, 'store'])->middleware('auth');
 
 //Show Create Familielid Form 
-Route::get('/familieleden/create', [FamilieledenController::class, 'create'])->middleware('auth');
+Route::get('/familieleden/create', [FamilielidController::class, 'create'])->middleware('auth');
 
 //Store Familielid Data
-Route::post('/familieleden', [FamilieledenController::class, 'store'])->middleware('auth');
+Route::post('/familieleden', [FamilielidController::class, 'store'])->middleware('auth');
 
 // Show Edit Familie Form
 Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->middleware('auth');
@@ -44,22 +44,22 @@ Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->midd
 Route::put('/families/{familie}', [FamilieController::class, 'update'])->middleware('auth');
 
 // Show Edit Familielid Form
-Route::get('/familieleden/{familielid}/edit', [FamilieledenController::class, 'edit'])->middleware('auth');
+Route::get('/familieleden/{familielid}/edit', [FamilielidController::class, 'edit'])->middleware('auth');
 
 // Update Familielid
-Route::put('/familieleden/{familielid}', [FamilieledenController::class, 'update'])->middleware('auth');
+Route::put('/familieleden/{familielid}', [FamilielidController::class, 'update'])->middleware('auth');
 
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
 
 // Delete Familielid
-Route::delete('/familieleden/{familielid}', [FamilieledenController::class, 'destroy'])->middleware('auth');
+Route::delete('/familieleden/{familielid}', [FamilielidController::class, 'destroy'])->middleware('auth');
 
 // Show Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);
 
 // Show Single familielid
-Route::get('/familieleden/{familielid}', [FamilieledenController::class, 'show']);
+Route::get('/familieleden/{familielid}', [FamilielidController::class, 'show']);
 
 //Show Register Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('auth');

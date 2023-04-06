@@ -10,6 +10,8 @@ class Leeftijdscategorie extends Model
 {
     use HasFactory;
 
+    protected $table = 'leeftijdscategorie';
+
     // Relatie tot contributies
     public function contributies()
     {

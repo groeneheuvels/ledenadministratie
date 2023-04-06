@@ -36,7 +36,6 @@ class ContributieSeeder extends Seeder
 
 
             $contributiebedrag = 100 * ($lidsoort->contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
-            //$contributiebedrag = $leeftijdscategorie->kortingspercentage;
 
             Contributie::create([
                 'leeftijdscategorie_id' => $leeftijdscategorie->id,

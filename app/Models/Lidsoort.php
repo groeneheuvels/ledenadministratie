@@ -10,6 +10,15 @@ class Lidsoort extends Model
 {
     use HasFactory;
 
+    protected $table = 'lidsoort';
+
+
+    // Relatie tot familieleden
+    public function familieleden()
+    {
+        return $this->hasMany(Familielid::class);
+    }
+
     // Relatie tot contributies
     public function contributies()
     {

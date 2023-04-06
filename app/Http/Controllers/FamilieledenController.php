@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Familie;
-use App\Models\Familieleden;
+use App\Models\Familielid;
 use Illuminate\Http\Request;
 
-class FamilieledenController extends Controller
+class FamilielidController extends Controller
 {
     // Show Familielid
 
-    public function show(Familieleden $familielid, Familie $familie)
+    public function show(Familielid $familielid, Familie $familie)
     {
         $familie = Familie::findOrFail($familielid->familie_id);
         /*dd([
@@ -44,13 +44,13 @@ class FamilieledenController extends Controller
 
         $formFields['familie_id'] = $request->input('familie_id');
 
-        Familieleden::create($formFields);
+        Familielid::create($formFields);
 
         return redirect('/')->with('message', 'Nieuw Familielid toegevoegd');
     }
 
     // Show Edit Familielid  Form
-    public function edit(Familieleden $familielid, Familie $familie)
+    public function edit(Familielid $familielid, Familie $familie)
     {
         //dd($familielid->firstname);
 
@@ -67,7 +67,7 @@ class FamilieledenController extends Controller
     }
 
     //Update Familielid Data
-    public function update(Request $request, Familieleden $familielid)
+    public function update(Request $request, Familielid $familielid)
     {
         $formFields = $request->validate([
             'firstname' => 'required',
@@ -80,7 +80,7 @@ class FamilieledenController extends Controller
     }
 
     // Delete Familielid Data
-    public function destroy(Familieleden $familielid)
+    public function destroy(Familielid $familielid)
     {
         $familielid->delete();
         return redirect('/')->with('message', 'Familielid verwijderd');

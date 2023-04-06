@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Boekjaar;
 use App\Models\User;
 use App\Models\Familie;
-use App\Models\Familieleden;
+use App\Models\Familielid;
 use App\Models\Leeftijdscategorie;
 use App\Models\Lidsoort;
 use Illuminate\Database\Seeder;
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'Jansen',
         ]);
 
-        Familieleden::factory(3)->create([
+        Familielid::factory(3)->create([
             'familie_id' => $familie_jansen->id
         ]);
 
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'Kooi',
         ]);
 
-        Familieleden::factory(4)->create([
+        Familielid::factory(4)->create([
             'familie_id' => $familie_kooi->id
         ]);
 
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'Jaspers',
         ]);
 
-        Familieleden::factory(6)->create([
+        Familielid::factory(6)->create([
             'familie_id' => $familie_jaspers->id
         ]);
 
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'Pieters',
         ]);
 
-        Familieleden::factory(2)->create([
+        Familielid::factory(2)->create([
             'familie_id' => $familie_pieters->id
         ]);
 
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'de Vries',
         ]);
 
-        Familieleden::factory(2)->create([
+        Familielid::factory(2)->create([
             'familie_id' => $familie_devries->id
         ]);
 
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'van Rijn',
         ]);
 
-        Familieleden::factory(3)->create([
+        Familielid::factory(3)->create([
             'familie_id' => $familie_vanrijn->id
         ]);
 
@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
             'lastname' => 'de Boer',
         ]);
 
-        Familieleden::factory(3)->create([
+        Familielid::factory(3)->create([
             'familie_id' => $familie_deboer->id
         ]);
 
