@@ -11,11 +11,15 @@ class Familieleden extends Model
 
     //alternatieve optie is in AppServiceProvider.php de unguard in te stellen
     protected $fillable = ['firstname', 'geboortedatum', 'familie_id'];
-
     protected $table = 'familieledens';
 
     public function familie()
     {
         return $this->belongsTo(Familie::class, 'familie_id');
+    }
+
+    public function contributies()
+    {
+        return $this->hasMany(Contributie::class);
     }
 }
