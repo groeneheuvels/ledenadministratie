@@ -4,11 +4,13 @@ namespace Database\Seeders;
 
 use App\Models\Boekjaar;
 use App\Models\Lidsoort;
-use App\Models\Contributie;
 use App\Models\Familielid;
+use App\Models\Contributie;
 use Illuminate\Database\Seeder;
 use App\Models\Leeftijdscategorie;
+use Illuminate\Support\Facades\Log;
 use Database\Factories\ContributieFactory;
+use Symfony\Component\Console\Output\Output;
 
 class ContributieSeeder extends Seeder
 {
@@ -23,16 +25,14 @@ class ContributieSeeder extends Seeder
         $familieleden = Familielid::all();
         $boekjaren = Boekjaar::all();
         $leeftijdscategorieen = Leeftijdscategorie::all();
-        //$lidsoorten = Lidsoort::all();
+
 
 
         foreach ($boekjaren as $boekjaar) {
             foreach ($familieleden as $familielid) {
                 $leeftijdscategorie = $familielid->berekenLeeftijdscategorie($leeftijdscategorieen, $boekjaar->jaartal);
-                $contributiefactor = $familielid->getLidsoort()->contributiefactor;
+                $contributiefactor = $familielid->lidsoort()->first()->contributiefactor;
                 $contributiebedrag = 100 * ($contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
-                // TODO: berekenen op basis van categorie en soort
-                // $contributiebedrag = 100 * ($lidsoort->contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
 
                 Contributie::create([
                     'familielid_id' => $familielid->id,
@@ -44,5 +44,4 @@ class ContributieSeeder extends Seeder
             }
         }
     }
-
 }

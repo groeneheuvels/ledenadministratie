@@ -7,7 +7,6 @@ use App\Models\Familie;
 use App\Models\Boekjaar;
 use App\Models\Lidsoort;
 use App\Models\Familielid;
-use App\Models\Familieleden;
 use Illuminate\Database\Seeder;
 use App\Models\Leeftijdscategorie;
 
