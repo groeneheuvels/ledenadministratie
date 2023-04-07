@@ -62,11 +62,11 @@ class CreateLedenadministratieTables extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('boekjaar');
-        Schema::dropIfExists('familie');
-        Schema::dropIfExists('leeftijdscategorie');
-        Schema::dropIfExists('lidsoort');
-        Schema::dropIfExists('familielid');
         Schema::dropIfExists('contributie');
+        Schema::dropIfExists('familielid');
+        Schema::dropIfExists('lidsoort');
+        Schema::dropIfExists('leeftijdscategorie');
+        Schema::dropIfExists('familie');
+        Schema::dropIfExists('boekjaar');
     }
 }
