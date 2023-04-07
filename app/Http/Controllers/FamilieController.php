@@ -40,7 +40,7 @@ class FamilieController extends Controller
     {
         $formFields = $request->validate([
             'lastname' => 'required',
-            'address' => ['required', Rule::unique('families', 'address')]
+            'address' => ['required', Rule::unique('familie', 'address')]
         ]);
 
         Familie::create($formFields);
