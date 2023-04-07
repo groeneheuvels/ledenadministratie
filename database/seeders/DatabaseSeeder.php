@@ -2,13 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Boekjaar;
 use App\Models\User;
 use App\Models\Familie;
-use App\Models\Familielid;
-use App\Models\Leeftijdscategorie;
+use App\Models\Boekjaar;
 use App\Models\Lidsoort;
+use App\Models\Familielid;
+use App\Models\Familieleden;
 use Illuminate\Database\Seeder;
+use App\Models\Leeftijdscategorie;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,63 +30,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'email' => 'info@ledenadministratie.nl',
             'password' => bcrypt('Welkom01'),
-        ]);
-
-        $familie_jansen = Familie::factory()->create([
-            'lastname' => 'Jansen',
-        ]);
-
-        Familielid::factory(3)->create([
-            'familie_id' => $familie_jansen->id
-        ]);
-
-        $familie_kooi = Familie::factory()->create([
-            'lastname' => 'Kooi',
-        ]);
-
-        Familielid::factory(4)->create([
-            'familie_id' => $familie_kooi->id
-        ]);
-
-        $familie_jaspers = Familie::factory()->create([
-            'lastname' => 'Jaspers',
-        ]);
-
-        Familielid::factory(6)->create([
-            'familie_id' => $familie_jaspers->id
-        ]);
-
-        $familie_pieters = Familie::factory()->create([
-            'lastname' => 'Pieters',
-        ]);
-
-        Familielid::factory(2)->create([
-            'familie_id' => $familie_pieters->id
-        ]);
-
-
-        $familie_devries = Familie::factory()->create([
-            'lastname' => 'de Vries',
-        ]);
-
-        Familielid::factory(2)->create([
-            'familie_id' => $familie_devries->id
-        ]);
-
-        $familie_vanrijn = Familie::factory()->create([
-            'lastname' => 'van Rijn',
-        ]);
-
-        Familielid::factory(3)->create([
-            'familie_id' => $familie_vanrijn->id
-        ]);
-
-        $familie_deboer = Familie::factory()->create([
-            'lastname' => 'de Boer',
-        ]);
-
-        Familielid::factory(3)->create([
-            'familie_id' => $familie_deboer->id
         ]);
 
         Boekjaar::create([
@@ -138,6 +82,16 @@ class DatabaseSeeder extends Seeder
             'contributiefactor' => '2'
         ]);
 
+        $families = Familie::factory(5)->create();
+
+        foreach ($families as $familie) {
+            Familielid::factory(3)->create([
+                'familie_id' => $familie->id
+            ]);
+
+        }
+
         $this->call(ContributieSeeder::class);
+
     }
 }
