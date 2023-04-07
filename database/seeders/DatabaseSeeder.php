@@ -23,8 +23,6 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-
-
         User::factory(2)->create();
 
         User::factory()->create([
@@ -82,13 +80,17 @@ class DatabaseSeeder extends Seeder
             'contributiefactor' => '2'
         ]);
 
+        $lidsoorten = Lidsoort::all();
+
         $families = Familie::factory(5)->create();
 
         foreach ($families as $familie) {
-            Familielid::factory(3)->create([
-                'familie_id' => $familie->id
-            ]);
-
+            foreach ($lidsoorten as $lidsoort) {
+                Familielid::factory(3)->create([
+                    'familie_id' => $familie->id,
+                    'lidsoort_id' => $lidsoort->id
+                ]);
+            }
         }
 
         $this->call(ContributieSeeder::class);

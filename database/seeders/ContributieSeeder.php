@@ -23,14 +23,16 @@ class ContributieSeeder extends Seeder
         $familieleden = Familielid::all();
         $boekjaren = Boekjaar::all();
         $leeftijdscategorieen = Leeftijdscategorie::all();
+        //$lidsoorten = Lidsoort::all();
 
 
         foreach ($boekjaren as $boekjaar) {
             foreach ($familieleden as $familielid) {
-
-                $leeftijdscategorie = $leeftijdscategorieen[0]; // TODO: berekenen op basis van leeftijd
-                $contributiebedrag = 100; // TODO: berekenen op basis van categorie en soort
-
+                $leeftijdscategorie = $familielid->berekenLeeftijdscategorie($leeftijdscategorieen, $boekjaar->jaartal);
+                $contributiefactor = $familielid->getLidsoort()->contributiefactor;
+                $contributiebedrag = 100 * ($contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
+                // TODO: berekenen op basis van categorie en soort
+                // $contributiebedrag = 100 * ($lidsoort->contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
 
                 Contributie::create([
                     'familielid_id' => $familielid->id,
@@ -41,7 +43,6 @@ class ContributieSeeder extends Seeder
                 ]);
             }
         }
-
     }
 
 }

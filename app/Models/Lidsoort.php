@@ -13,6 +13,8 @@ class Lidsoort extends Model
     protected $table = 'lidsoort';
     protected $fillable = ['omschrijving', 'contributiefactor'];
 
+
+
     // Relatie tot familieleden
     public function familieleden()
     {
