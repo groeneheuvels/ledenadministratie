@@ -2,44 +2,37 @@
     <div>
         <div>
             <h2>
-            Inloggen
+                Inloggen
             </h2>
         </div>
         <form method="POST" action="/users/authenticate">
             @csrf
             <div>
                 <label for="email">
-                Email
+                    Email
                 </label>
-                <input
-                type="email"
-                name="email"
-                value="{{old('email')}}""
-                />
+                <input type="email" name="email" value="{{ old('email') }}"" />
                 @error('email')
-                    <p>{{$message}}</p>
+                    <p>{{ $message }}</p>
                 @enderror
             </div>
             <div>
                 <label for="password">
-                wachtwoord
+                    wachtwoord
                 </label>
-                <input
-                type="password"
-                name="password"
-                value="{{old('password')}}""
-                />
+                <input type="password" name="password" value="{{ old('password') }}"" />
                 @error('password')
-                    <p>{{$message}}</p>
+                    <p>{{ $message }}</p>
                 @enderror
             </div>
             <div class="knop">
                 <button type="submit">
-                Inloggen
+                    Inloggen
                 </button>
             </div>
             <div>
-                <p>Inlog aanvragen? Stuur een <a href="mailto:info@ledenadministratie.nl">email</a> naar de ledenadministratie</p>
+                <p>Inlog aanvragen? Stuur een <a href="mailto:info@ledenadministratie.nl">email</a> naar de
+                    ledenadministratie</p>
             </div>
         </form>
     </div>

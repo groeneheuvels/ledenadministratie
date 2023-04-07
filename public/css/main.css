@@ -11,6 +11,7 @@ main h2{
 
 body {
   background: var(--kleur-achtergrond);
+  font-family: sans-serif;
 }
 
 header {
@@ -115,7 +116,8 @@ footer{
 }
 
 .familie-kaart{
-  border: 10px solid black;
+  box-shadow: 5px 5px 5px gray;
+  background: white;
   flex: 0 0 40%;
   padding: 10px;
   margin: 10px 0;

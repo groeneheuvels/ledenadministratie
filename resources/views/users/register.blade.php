@@ -2,7 +2,7 @@
     <div>
         <div>
             <h2>
-            Registeer
+                Registeer
             </h2>
             <p>Maak nieuw admin account</p>
         </div>
@@ -10,66 +10,51 @@
             @csrf
             <div>
                 <label for="name">
-                Naam
+                    Naam
                 </label>
-                <input
-                type="text"
-                name="name"
-                value="{{old('name')}}""
-                />
+                <input type="text" name="name" value="{{ old('name') }}"" />
                 @error('name')
-                    <p>{{$message}}</p>
+                    <p>{{ $message }}</p>
                 @enderror
             </div>
             <div>
                 <label for="email">
-                Email
+                    Email
                 </label>
-                <input
-                type="email"
-                name="email"
-                value="{{old('email')}}""
-                />
+                <input type="email" name="email" value="{{ old('email') }}"" />
                 @error('email')
-                    <p>{{$message}}</p>
+                    <p>{{ $message }}</p>
                 @enderror
             </div>
             <div>
                 <label for="password">
-                wachtwoord
+                    wachtwoord
                 </label>
-                <input
-                type="password"
-                name="password"
-                value="{{old('password')}}""
-                />
+                <input type="password" name="password" value="{{ old('password') }}"" />
                 @error('password')
-                    <p>{{$message}}</p>
+                    <p>{{ $message }}</p>
                 @enderror
             </div>
             <div>
                 <label for="password_confirmation">
-                Bevestig wachtwoord
+                    Bevestig wachtwoord
                 </label>
-                <input
-                type="password"
-                name="password_confirmation"
-                />
+                <input type="password" name="password_confirmation" />
                 @error('password_confirmation')
-                    <p>{{$message}}</p>
+                    <p>{{ $message }}</p>
                 @enderror
             </div>
             <div class="knop">
                 <button type="submit">
-                Registreer
+                    Registreer
                 </button>
             </div>
             <div>
                 <p>
-                Heb je al een account?
-                <a href="/login">Login</a>
+                    Heb je al een account?
+                    <a href="/login">Login</a>
                 </p>
-         </div>
+            </div>
         </form>
     </div>
 </x-layout>
