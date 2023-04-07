@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Familie;
 use App\Models\Familielid;
+use App\Models\Lidsoort;
 use Illuminate\Http\Request;
 
 class FamilielidController extends Controller
@@ -50,19 +51,24 @@ class FamilielidController extends Controller
     }
 
     // Show Edit Familielid  Form
-    public function edit(Familielid $familielid, Familie $familie)
+    public function edit(Familielid $familielid)
     {
-        //dd($familielid->firstname);
 
         $familie = Familie::findOrFail($familielid->familie_id);
+        // dd($familie->lastname);
+
+        $lidsoorten = Lidsoort::all();
         /*dd([
         'familielid' => $familielid,
         'familie' => $familie,
         ]);*/
 
+
+
         return view('familieleden.edit', [
             'familielid' => $familielid,
-            'familie' => $familie
+            'familie' => $familie,
+            'lidsoorten' => $lidsoorten
         ]);
     }
 
@@ -71,7 +77,8 @@ class FamilielidController extends Controller
     {
         $formFields = $request->validate([
             'firstname' => 'required',
-            'geboortedatum' => 'required'
+            'geboortedatum' => 'required',
+            'lidsoort_id' => 'required'
         ]);
 
         $familielid->update($formFields);

@@ -22,12 +22,26 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <button class="knop">
-                Opslaan
-            </button>
-            <div class="knop">
-                <a href="/familieleden/{{ $familielid->id }}"> Terug </a>
-            </div>
+            <div>
+                <div>
+                    <label for="lidsoort_id">Lidsoort</label>
+                    <select name="lidsoort_id" id="lidsoort_id">
+                        @foreach ($lidsoorten as $lidsoort)
+                            <option value="{{ $lidsoort->id }}" @if ($lidsoort->id == $familielid->lidsoort_id) selected @endif>
+                                {{ $lidsoort->omschrijving }}</option>
+                        @endforeach
+                    </select>
+                    @error('lidsoort_id')
+                        <p>{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <button class="knop">
+                    Opslaan
+                </button>
+                <div class="knop">
+                    <a href="/familieleden/{{ $familielid->id }}"> Terug </a>
+                </div>
         </form>
     </div>
 </x-layout>
