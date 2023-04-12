@@ -50,7 +50,7 @@
                                 Instellingen &gt;
                                 <ul id="submenu">
                                     {{-- <li><a href="/users">Admin accounts bewerken</a></li> --}}
-                                    <li><a href="/">Lidsoorten</a></li>
+                                    <li><a href="/lidsoorten">Lidsoorten</a></li>
                                     <li><a href="/">Leeftijdscategorieën</a></li>
                                     <li><a href="/">Boekjaren</a></li>
                                 </ul>

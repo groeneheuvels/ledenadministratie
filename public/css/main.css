@@ -150,15 +150,8 @@ footer{
   justify-content: space-evenly;
 }
 
-.familie-kaart{
-  box-shadow: 5px 5px 5px gray;
-  background: white;
-  flex: 0 0 40%;
-  padding: 10px;
-  margin: 10px 0;
-}
 
-.user-kaart{
+.kaart{
   box-shadow: 5px 5px 5px gray;
   background: white;
   flex: 0 0 40%;

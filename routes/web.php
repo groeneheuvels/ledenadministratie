@@ -5,6 +5,7 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FamilieController;
+use App\Http\Controllers\LidsoortController;
 use App\Http\Controllers\FamilielidController;
 
 /*
@@ -25,6 +26,9 @@ return view('welcome');
 // All families
 Route::get('/', [FamilieController::class, 'index']);
 
+// All lidsoorten
+Route::get('/lidsoorten', [LidsoortController::class, 'show']);
+
 // Show Create Familie Form
 Route::get('/families/create', [FamilieController::class, 'create'])->middleware('auth');
 
@@ -37,6 +41,13 @@ Route::get('/familieleden/create', [FamilielidController::class, 'create'])->mid
 //Store Familielid Data
 Route::post('/familieleden', [FamilielidController::class, 'store'])->middleware('auth');
 
+
+//Show Create Lidsoort Form
+Route::get('lidsoorten/create', [LidsoortController::class, 'create'])->middleware('auth');
+
+//Store Lidsoort Data
+Route::post('/lidsoorten', [LidsoortController::class, 'store'])->middleware('auth');
+
 // Show Edit Familie Form
 Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->middleware('auth');
 
@@ -48,6 +59,12 @@ Route::get('/familieleden/{familielid}/edit', [FamilielidController::class, 'edi
 
 // Update Familielid
 Route::put('/familieleden/{familielid}', [FamilielidController::class, 'update'])->middleware('auth');
+
+// Show Edit Lidsoort Form
+Route::get('/lidsoorten/{lidsoort}/edit', [LidsoortController::class, 'edit'])->middleware('auth');
+
+// Update Lidsoort
+Route::put('/lidsoorten/{lidsoort}', [LidsoortController::class, 'update'])->middleware('auth');
 
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');

@@ -1,4 +1,4 @@
-<div class="familie-kaart">
+<div class="kaart">
     <h3>
         <a href="/families/{{ $familie->id }}"> {{ $familie->lastname }}</a>
     </h3>
