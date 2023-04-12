@@ -7,7 +7,7 @@
         @unless (count($families) == 0)
 
             @foreach ($families as $familie)
-                <x-familie-kaart :familie="$familie" />
+                <x-familie-kaart :familie="$familie" :totalContributiebedrag="$totalen[$familie->id]" />
             @endforeach
         @else
             <p>Geen families gevonden</p>

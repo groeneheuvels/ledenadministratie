@@ -30,4 +30,15 @@ class Familie extends Model
         return $this->hasMany(Familielid::class);
     }
 
+    // Bereken Huidig Totaal Familie contributie bedrag
+    public function berekenHuidigTotaalContributiebedrag()
+    {
+        $total = 0;
+        foreach ($this->familieleden as $familielid) {
+            $contributiebedrag = $familielid->berekenHuidigContributiebedrag($familielid);
+            $total += $contributiebedrag;
+        }
+        return $total;
+    }
+
 }

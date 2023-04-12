@@ -3,25 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\Models\Familie;
-use App\Models\Familielid;
 use App\Models\Lidsoort;
+use App\Models\Familielid;
+use App\Models\Contributie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FamilielidController extends Controller
 {
+
+    //Calculate Familielid Contributie
+    /*  public function toonContributie(Familielid $familielid)
+    {
+    $boekjaar = date('Y');
+    
+    Contributie::whereHas('familielid', function ($query) use ($familielid) {
+    $query->where('id', $familielid);
+    })
+    ->whereHas('boekjaar', function ($query) use ($boekjaar) {
+    $query->where('jaartal', $boekjaar);
+    })
+    ->sum('contributiebedrag');
+    return $contributiebedrag view('familielid', ['contributiebedrag' => $contributiebedrag]);
+    }
+    */
     // Show Familielid
 
     public function show(Familielid $familielid, Familie $familie)
     {
         $familie = Familie::findOrFail($familielid->familie_id);
-        /*dd([
-        'familielid' => $familielid,
-        'familie' => $familie,
-        ]);*/
+
+
+        $contributiebedrag = $familielid->berekenHuidigContributiebedrag($familielid);
 
         return view('familieleden.show', [
             'familielid' => $familielid,
             'familie' => $familie,
+            'contributiebedrag' => $contributiebedrag
         ]);
     }
 
@@ -92,4 +110,6 @@ class FamilielidController extends Controller
         $familielid->delete();
         return redirect('/')->with('message', 'Familielid verwijderd');
     }
+
+
 }

@@ -4,6 +4,7 @@
         <p>{{ $familielid->firstname }} <a href="/families/{{ $familie['id'] }}"> {{ $familie->lastname }}</a></p>
         <p>Geboortedatum: {{ $familielid->geboortedatum }} </p>
         <p>Adres: {{ $familie->address }}</p>
+        <p>Contributie: &euro; {{ $contributiebedrag }}</p>
     </div>
     <div class="knop">
         <a href="/familieleden/{{ $familielid->id }}/edit">Bewerk Familielid</a>

@@ -30,6 +30,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Boekjaar::create([
+            'jaartal' => '2023',
+        ]);
+        Boekjaar::create([
             'jaartal' => '2022',
         ]);
         Boekjaar::create([

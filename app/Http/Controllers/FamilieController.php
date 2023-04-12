@@ -11,23 +11,48 @@ class FamilieController extends Controller
 {
     // Show all Families
 
+    /* public function index()
+    {
+    //dd(request('lastname'));
+    // overweeg ipg simplePaginate gewoon paginate te doen, dan wel opmaak aanpassen 2:43:07
+    
+    return view('families.index', [
+    'families' => Familie::latest()->filter(request(['search']))->SimplePaginate(6),
+    'totalContributiebedrag' => $totalContributiebedrag
+    ]);
+    }*/
+
     public function index()
     {
-        //dd(request('lastname'));
-        // overweeg ipg simplePaginate gewoon paginate te doen, dan wel opmaak aanpassen 2:43:07
+        $families = Familie::latest()->filter(request(['search']))->SimplePaginate(6);
+
+        // Maak een lege array aan om de totale contributiebedragen op te slaan
+        $totalen = [];
+
+        // Bereken het totale contributiebedrag voor elke familie en sla het op in de array
+        foreach ($families as $familie) {
+            $totalen[$familie->id] = $familie->berekenHuidigTotaalContributiebedrag();
+        }
+
         return view('families.index', [
-            'families' => Familie::latest()->filter(request(['search']))->SimplePaginate(6)
+            'families' => $families,
+            'totalen' => $totalen
         ]);
     }
+
 
     // Show single Familie
 
     public function show(Familie $familie)
     {
+        $totalContributiebedrag = $familie->berekenHuidigTotaalContributiebedrag();
         return view('families.show', [
-            'familie' => $familie
+            'familie' => $familie,
+            'totalContributiebedrag' => $totalContributiebedrag
         ]);
     }
+
+
 
     // Show Create Familie Form
     public function create()
@@ -83,10 +108,5 @@ class FamilieController extends Controller
         $familieleden = $familie->familieleden()->get();
         return view('components.familie-kaart', compact('familie', 'familieleden'));
     }
-
-// Bereken Huidig Totaal Familie contributie bedrag
-
-
-
 
 }

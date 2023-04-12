@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Lidsoort;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -40,4 +41,23 @@ class Familielid extends Model
             }
         }
     }
+
+    public function berekenHuidigContributiebedrag(Familielid $familielid)
+    {
+        $familielid_id = $familielid->id;
+        $jaartal = date('Y');
+
+        $contributiebedrag = DB::table('contributie')
+            ->where('boekjaar_id', function ($query) use ($jaartal) {
+                $query->select('id')
+                    ->from('boekjaar')
+                    ->where('jaartal', $jaartal);
+            })
+            ->where('familielid_id', $familielid_id)
+            ->value('contributiebedrag');
+
+        return $contributiebedrag;
+    }
+
+
 }
