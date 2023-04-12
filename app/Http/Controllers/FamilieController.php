@@ -84,6 +84,9 @@ class FamilieController extends Controller
         return view('components.familie-kaart', compact('familie', 'familieleden'));
     }
 
+// Bereken Huidig Totaal Familie contributie bedrag
+
+
 
 
 }
