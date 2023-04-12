@@ -28,14 +28,12 @@ class BoekjaarController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'omschrijving' => 'required',
-            'contributiefactor' => ['required', 'numeric', 'min:1', 'max:5', 'regex:/^\d+(\.\d{1})?$/']
-
+            'jaartal' => ['required', 'numeric', 'min:1900', 'max:2100']
         ]);
 
         Boekjaar::create($formFields);
 
-        return redirect('/boekjaren')->with('message', 'Nieuwe Boekjaar aangemaakt');
+        return redirect('/boekjaren')->with('message', 'Nieuw Boekjaar aangemaakt');
     }
 
     // Show Edit Form
@@ -49,8 +47,7 @@ class BoekjaarController extends Controller
     public function update(Request $request, Boekjaar $boekjaar)
     {
         $formFields = $request->validate([
-            'omschrijving' => 'required',
-            'contributiefactor' => 'required'
+            'jaartal' => ['required', 'numeric', 'min:1900', 'max:2100']
         ]);
 
         $boekjaar->update($formFields);
