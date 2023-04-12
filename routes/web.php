@@ -33,6 +33,9 @@ Route::get('/lidsoorten', [LidsoortController::class, 'show']);
 // All leeftijdscategorieen
 Route::get('/leeftijdscategorieen', [LeeftijdscategorieController::class, 'show']);
 
+// All boekjaren
+Route::get('/boekjaren', [BoekjaarController::class, 'show']);
+
 // Show Create Familie Form
 Route::get('/families/create', [FamilieController::class, 'create'])->middleware('auth');
 
@@ -57,6 +60,11 @@ Route::get('leeftijdscategorieen/create', [LeeftijdscategorieController::class, 
 //Store Leeftijdscategorie Data
 Route::post('/leeftijdscategorieen', [LeeftijdscategorieController::class, 'store'])->middleware('auth');
 
+//Show Create Boekjaar Form
+Route::get('boekjaren/create', [BoekjaarController::class, 'create'])->middleware('auth');
+
+//Store Boekjaar Data
+Route::post('/boekjaren', [BoekjaarController::class, 'store'])->middleware('auth');
 
 // Show Edit Familie Form
 Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->middleware('auth');
@@ -82,6 +90,12 @@ Route::get('/leeftijdscategorieen/{leeftijdscategorie}/edit', [Leeftijdscategori
 // Update Leeftijdscategorie
 Route::put('/leeftijdscategorieen/{leeftijdscategorie}', [LeeftijdscategorieController::class, 'update'])->middleware('auth');
 
+// Show Edit Boekjaar Form
+Route::get('/boekjaren/{boekjaar}/edit', [BoekjaarController::class, 'edit'])->middleware('auth');
+
+// Update Boekjaar
+Route::put('/boekjaren/{boekjaar}', [BoekjaarController::class, 'update'])->middleware('auth');
+
 
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
@@ -91,6 +105,11 @@ Route::delete('/lidsoorten/{lidsoort}', [LidsoortController::class, 'destroy'])-
 
 // Delete Leeftijdscategorie
 Route::delete('/leeftijdscategorieen/{leeftijdscategorie}', [LeeftijdscategorieController::class, 'destroy'])->middleware('auth');
+
+
+// Delete Boekjaar
+Route::delete('/boekjaren/{boekjaar}', [BoekjaarController::class, 'destroy'])->middleware('auth');
+
 
 // Delete Familielid
 Route::delete('/familieleden/{familielid}', [FamilielidController::class, 'destroy'])->middleware('auth');

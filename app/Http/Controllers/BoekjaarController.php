@@ -45,6 +45,7 @@ class BoekjaarController extends Controller
     }
 
     //Update Boekjaar Data
+
     public function update(Request $request, Boekjaar $boekjaar)
     {
         $formFields = $request->validate([
