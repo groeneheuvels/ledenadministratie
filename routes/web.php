@@ -51,6 +51,13 @@ Route::get('lidsoorten/create', [LidsoortController::class, 'create'])->middlewa
 //Store Lidsoort Data
 Route::post('/lidsoorten', [LidsoortController::class, 'store'])->middleware('auth');
 
+//Show Create Leeftijdscategorie Form
+Route::get('leeftijdscategorieen/create', [LeeftijdscategorieController::class, 'create'])->middleware('auth');
+
+//Store Leeftijdscategorie Data
+Route::post('/leeftijdscategorieen', [LeeftijdscategorieController::class, 'store'])->middleware('auth');
+
+
 // Show Edit Familie Form
 Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->middleware('auth');
 
@@ -69,11 +76,21 @@ Route::get('/lidsoorten/{lidsoort}/edit', [LidsoortController::class, 'edit'])->
 // Update Lidsoort
 Route::put('/lidsoorten/{lidsoort}', [LidsoortController::class, 'update'])->middleware('auth');
 
+// Show Edit Leeftijdscategorie Form
+Route::get('/leeftijdscategorieen/{leeftijdscategorie}/edit', [LeeftijdscategorieController::class, 'edit'])->middleware('auth');
+
+// Update Leeftijdscategorie
+Route::put('/leeftijdscategorieen/{leeftijdscategorie}', [LeeftijdscategorieController::class, 'update'])->middleware('auth');
+
+
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
 
 // Delete Lidsoort
 Route::delete('/lidsoorten/{lidsoort}', [LidsoortController::class, 'destroy'])->middleware('auth');
+
+// Delete Leeftijdscategorie
+Route::delete('/leeftijdscategorieen/{leeftijdscategorie}', [LeeftijdscategorieController::class, 'destroy'])->middleware('auth');
 
 // Delete Familielid
 Route::delete('/familieleden/{familielid}', [FamilielidController::class, 'destroy'])->middleware('auth');
