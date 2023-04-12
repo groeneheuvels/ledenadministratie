@@ -25,6 +25,18 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
+            <div>
+                <label for="lidsoort">Lidsoort</label>
+                <select name="lidsoort" id="lidsoort">
+                    @foreach ($lidsoorten as $lidsoort)
+                        <option value="{{ $lidsoort->id }}">
+                            {{ $lidsoort->omschrijving }}</option>
+                    @endforeach
+                </select>
+                @error('lidsoort')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
             <button class="knop">
                 Opslaan
             </button>

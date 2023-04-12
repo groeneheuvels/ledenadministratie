@@ -49,8 +49,12 @@ class FamilielidController extends Controller
     {
         $familie_id = $request->input('familie_id');
         $familie = Familie::find($familie_id);
+        $lidsoorten = Lidsoort::all();
 
-        return view('familieleden.create', compact('familie'));
+        return view('familieleden.create', [
+            'familie' => $familie,
+            'lidsoorten' => $lidsoorten
+        ]);
     }
 
     // Store Familielid Data
@@ -58,10 +62,18 @@ class FamilielidController extends Controller
     {
         $formFields = $request->validate([
             'firstname' => 'required',
-            'geboortedatum' => 'required'
+            'geboortedatum' => 'required',
+            'lidsoort' => 'required'
         ]);
 
         $formFields['familie_id'] = $request->input('familie_id');
+
+        // Haal het Lidsoort object op basis van de geselecteerde waarde
+        $lidsoort = Lidsoort::findOrFail($request->input('lidsoort'));
+
+        // Sla het corresponderende lidsoort_id op in de tabel
+        $formFields['lidsoort_id'] = $lidsoort->id;
+
 
         Familielid::create($formFields);
 
@@ -80,8 +92,6 @@ class FamilielidController extends Controller
         'familielid' => $familielid,
         'familie' => $familie,
         ]);*/
-
-
 
         return view('familieleden.edit', [
             'familielid' => $familielid,
