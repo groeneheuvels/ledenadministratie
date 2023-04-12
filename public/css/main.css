@@ -71,7 +71,7 @@ header a:visited {
   top: 40px;
   left: 0;
   min-width: 100%;
-  background-color: var(--kleur-hover);
+  background-color: var(--kleur-header-footer);
   position: absolute;
   padding: 0;
   opacity: 0;
@@ -151,6 +151,14 @@ footer{
 }
 
 .familie-kaart{
+  box-shadow: 5px 5px 5px gray;
+  background: white;
+  flex: 0 0 40%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.user-kaart{
   box-shadow: 5px 5px 5px gray;
   background: white;
   flex: 0 0 40%;
