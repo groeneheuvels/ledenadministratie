@@ -61,7 +61,7 @@ class LidsoortController extends Controller
     public function destroy(lidsoort $lidsoort)
     {
         $lidsoort->delete();
-        return redirect('/')->with('message', 'lidsoort verwijderd');
+        return redirect('/lidsoorten')->with('message', 'lidsoort verwijderd');
     }
 
 }

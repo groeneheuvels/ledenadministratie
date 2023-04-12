@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FamilieController;
 use App\Http\Controllers\LidsoortController;
 use App\Http\Controllers\FamilielidController;
+use App\Http\Controllers\LeeftijdscategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::get('/', [FamilieController::class, 'index']);
 // All lidsoorten
 Route::get('/lidsoorten', [LidsoortController::class, 'show']);
 
+// All leeftijdscategorieen
+Route::get('/leeftijdscategorieen', [LeeftijdscategorieController::class, 'show']);
+
 // Show Create Familie Form
 Route::get('/families/create', [FamilieController::class, 'create'])->middleware('auth');
 
@@ -40,7 +44,6 @@ Route::get('/familieleden/create', [FamilielidController::class, 'create'])->mid
 
 //Store Familielid Data
 Route::post('/familieleden', [FamilielidController::class, 'store'])->middleware('auth');
-
 
 //Show Create Lidsoort Form
 Route::get('lidsoorten/create', [LidsoortController::class, 'create'])->middleware('auth');
@@ -68,6 +71,9 @@ Route::put('/lidsoorten/{lidsoort}', [LidsoortController::class, 'update'])->mid
 
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
+
+// Delete Lidsoort
+Route::delete('/lidsoorten/{lidsoort}', [LidsoortController::class, 'destroy'])->middleware('auth');
 
 // Delete Familielid
 Route::delete('/familieleden/{familielid}', [FamilielidController::class, 'destroy'])->middleware('auth');
