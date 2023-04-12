@@ -92,8 +92,4 @@ class FamilielidController extends Controller
         $familielid->delete();
         return redirect('/')->with('message', 'Familielid verwijderd');
     }
-
-
-
-
 }

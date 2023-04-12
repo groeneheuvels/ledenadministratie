@@ -35,6 +35,27 @@ class UserController extends Controller
         return redirect('/')->with('message', 'Nieuwe gebruiker aangemaakt en ingelogd');
     }
 
+    // Show Edit User  Form
+    public function edit(User $user)
+    {
+        //dd($user->name);
+        return view('users.edit', ['user' => $user]);
+    }
+
+    //Update User Data
+    public function update(Request $request, User $user)
+    {
+        $formFields = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|confirmed | min:6'
+        ]);
+
+        $user->update($formFields);
+
+        return back()->with('message', 'User bewerking succesvol');
+    }
+
     // Logout User
     public function logout(Request $request)
     {

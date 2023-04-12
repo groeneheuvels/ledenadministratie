@@ -26,11 +26,8 @@
                 <ul class="menu">
                     @auth
                         <li>
-                            <p>Welkom {{ auth()->user()->name }}</p>
+                            <a href="/users/{{ auth()->user()->id }}/edit">Welkom {{ auth()->user()->name }}</a>
                         </li>
-                        <li><a href="/families/create">Familie aanmaken</a></li>
-
-                        <li><a href="/register">Admin account aanmaken</a></li>
                         <li>
                             <form method="POST" action="/logout">
                                 @csrf
@@ -42,12 +39,27 @@
                             </form>
                         </li>
                     @endauth
-                    @guest
-                        <li><a href="/login">Admin inlog</a></li>
-                    @endguest
                     <li>
                         @include('partials._search')
                     </li>
+                    @auth
+                        <li><a href="/families/create">Familie aanmaken</a></li>
+                        <li id="submenu-toggle">
+                            <div>
+                                Instellingen &gt;
+                                <ul id="submenu">
+                                    <li><a href="/register">Admin account aanmaken</a></li>
+                                    <li><a href="/">Lidsoorten</a></li>
+                                    <li><a href="/">Leeftijdscategorieën</a></li>
+                                    <li><a href="/">Boekjaren</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    @endauth
+                    @guest
+                        <li><a href="/login">Admin inlog</a></li>
+                    @endguest
+
                 </ul>
             </nav>
         </div>

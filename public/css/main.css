@@ -59,6 +59,41 @@ header a:visited {
   list-style: none;
 }
 
+.menu a,
+#submenu-toggle div {
+  display: block;
+  padding: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#submenu {
+  top: 40px;
+  left: 0;
+  min-width: 100%;
+  background-color: var(--kleur-hover);
+  position: absolute;
+  padding: 0;
+  opacity: 0;
+  z-index: 1;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.3s ease-in-out;
+}
+
+#submenu-toggle:hover #submenu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+#submenu li {
+  text-align: left;
+}
+
+#submenu-toggle {
+  position: relative;
+}
+
 /*container grid, hele website*/
 
 .container-grid {
