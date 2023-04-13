@@ -28,6 +28,7 @@
             <button class="knop">
                 Opslaan
             </button>
+            <a href="/families/{{ $familie->id }}">Terug</a>
         </form>
     </div>
 </x-layout>

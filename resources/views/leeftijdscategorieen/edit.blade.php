@@ -38,6 +38,7 @@
             <button class="knop">
                 Opslaan
             </button>
+            <a href="/leeftijdscategorieen">Terug</a>
         </form>
     </div>
 </x-layout>

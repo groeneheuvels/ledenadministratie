@@ -69,19 +69,13 @@ class FamilielidController extends Controller
 
         $familielid = Familielid::create($formFields);
 
-
-
-
         $boekjaarJaartal = date('Y'); // huidige boekjaar
 
-        // Zoek het Boekjaar object op basis van hun ID's en jaartal
+        // Zoek het Boekjaar object op basis van jaartal
         $boekjaar = Boekjaar::where('jaartal', $boekjaarJaartal)->firstOrFail();
 
-
-        // Roep de createContributie functie aan met het gevonden Familielid en Boekjaar
+        // Roep de createContributie functie aan met het familielid en gevonden Boekjaar
         Contributie::createContributie($familielid, $boekjaar);
-
-
 
         return redirect('/')->with('message', 'Nieuw Familielid toegevoegd');
     }
@@ -93,6 +87,8 @@ class FamilielidController extends Controller
         $familie = Familie::findOrFail($familielid->familie_id);
 
         $lidsoorten = Lidsoort::all();
+
+
 
 
         return view('familieleden.edit', [
