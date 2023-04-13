@@ -5,7 +5,7 @@
         <p>Soort lid: {{ $familielid->lidsoort->omschrijving }} </p>
         <p>Geboortedatum: {{ $familielid->geboortedatum }} </p>
         <p>Adres: {{ $familie->address }}</p>
-        <p>Contributie {{ date('Y') }}: &euro; {{ $contributiebedrag }}</p>
+        {{-- <p>Contributie {{ date('Y') }}: &euro; {{ $contributiebedrag }}</p> --}}
     </div>
     <div class="knop">
         <a href="/familieleden/{{ $familielid->id }}/edit">Bewerk Familielid</a>
