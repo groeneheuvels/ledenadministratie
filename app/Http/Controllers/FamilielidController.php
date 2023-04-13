@@ -88,9 +88,6 @@ class FamilielidController extends Controller
 
         $lidsoorten = Lidsoort::all();
 
-
-
-
         return view('familieleden.edit', [
             'familielid' => $familielid,
             'familie' => $familie,
@@ -108,6 +105,15 @@ class FamilielidController extends Controller
         ]);
 
         $familielid->update($formFields);
+
+        $boekjaarJaartal = date('Y'); // huidige boekjaar
+
+        // Zoek het Boekjaar object op basis van jaartal
+        $boekjaar = Boekjaar::where('jaartal', $boekjaarJaartal)->firstOrFail();
+
+        // Roep de createContributie functie aan met het familielid en gevonden Boekjaar
+        Contributie::createContributie($familielid, $boekjaar);
+
 
         return back()->with('message', 'Familielid bewerking succesvol');
     }

@@ -46,6 +46,7 @@ class Familielid extends Model
     {
         $familielid_id = $familielid->id;
         $jaartal = date('Y');
+        $lidsoort_id = $familielid->lidsoort_id;
 
         $contributiebedrag = DB::table('contributie')
             ->where('boekjaar_id', function ($query) use ($jaartal) {
@@ -53,6 +54,7 @@ class Familielid extends Model
                     ->from('boekjaar')
                     ->where('jaartal', $jaartal);
             })
+            ->where('lidsoort_id', $lidsoort_id)
             ->where('familielid_id', $familielid_id)
             ->value('contributiebedrag');
 
