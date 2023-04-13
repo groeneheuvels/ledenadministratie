@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Familie;
+use App\Models\Boekjaar;
 use App\Models\Lidsoort;
 use App\Models\Familielid;
 use App\Models\Contributie;
@@ -66,7 +67,21 @@ class FamilielidController extends Controller
         $formFields['lidsoort_id'] = $lidsoort->id;
 
 
-        Familielid::create($formFields);
+        $familielid = Familielid::create($formFields);
+
+
+
+
+        $boekjaarJaartal = date('Y'); // huidige boekjaar
+
+        // Zoek het Boekjaar object op basis van hun ID's en jaartal
+        $boekjaar = Boekjaar::where('jaartal', $boekjaarJaartal)->firstOrFail();
+
+
+        // Roep de createContributie functie aan met het gevonden Familielid en Boekjaar
+        Contributie::createContributie($familielid, $boekjaar);
+
+
 
         return redirect('/')->with('message', 'Nieuw Familielid toegevoegd');
     }

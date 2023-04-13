@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Familie;
 use App\Models\Lidsoort;
+use App\Models\Familielid;
 use App\Models\Leeftijdscategorie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +15,7 @@ class Contributie extends Model
 
     protected $table = 'contributie';
 
-    protected $fillable = ["contributiebedrag"];
+    protected $fillable = ["contributiebedrag", "boekjaar_id", "lidsoort_id", "leeftijdscategorie_id", "familielid_id"];
 
     // Relatie tot boekjaar 
     public function boekjaren()
@@ -41,6 +43,23 @@ class Contributie extends Model
     public function leeftijdscategorie()
     {
         return $this->belongsTo(Leeftijdscategorie::class);
+    }
+
+    static function createContributie(Familielid $familielid, Boekjaar $boekjaar)
+    {
+        $leeftijdscategorieen = Leeftijdscategorie::all();
+
+        $leeftijdscategorie = $familielid->berekenLeeftijdscategorie($leeftijdscategorieen, $boekjaar->jaartal);
+        $contributiefactor = $familielid->lidsoort()->first()->contributiefactor;
+        $contributiebedrag = 100 * ($contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
+
+        return Contributie::create([
+            'familielid_id' => $familielid->id,
+            'boekjaar_id' => $boekjaar->id,
+            'lidsoort_id' => $familielid->lidsoort_id,
+            'leeftijdscategorie_id' => $leeftijdscategorie->id,
+            'contributiebedrag' => $contributiebedrag
+        ]);
     }
 
 
