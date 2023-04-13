@@ -51,7 +51,7 @@ class Contributie extends Model
 
         $leeftijdscategorie = $familielid->berekenLeeftijdscategorie($leeftijdscategorieen, $boekjaar->jaartal);
         $contributiefactor = $familielid->lidsoort()->first()->contributiefactor;
-        $contributiebedrag = 100 * ($contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
+        $contributiebedrag = $boekjaar->basiscontributie * ($contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
 
         return Contributie::create([
             'familielid_id' => $familielid->id,
