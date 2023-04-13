@@ -1,10 +1,11 @@
 <x-layout>
 
-    <div class="familielid-kaart">
+    <div class="kaart">
         <p>{{ $familielid->firstname }} <a href="/families/{{ $familie['id'] }}"> {{ $familie->lastname }}</a></p>
+        <p>Soort lid: {{ $familielid->lidsoort->omschrijving }} </p>
         <p>Geboortedatum: {{ $familielid->geboortedatum }} </p>
         <p>Adres: {{ $familie->address }}</p>
-        <p>Contributie: &euro; {{ $contributiebedrag }}</p>
+        <p>Contributie {{ date('Y') }}: &euro; {{ $contributiebedrag }}</p>
     </div>
     <div class="knop">
         <a href="/familieleden/{{ $familielid->id }}/edit">Bewerk Familielid</a>
