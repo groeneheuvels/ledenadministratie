@@ -5,6 +5,7 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FamilieController;
+use App\Http\Controllers\BoekjaarController;
 use App\Http\Controllers\LidsoortController;
 use App\Http\Controllers\FamilielidController;
 use App\Http\Controllers\LeeftijdscategorieController;

@@ -52,7 +52,7 @@
                                     {{-- <li><a href="/users">Admin accounts bewerken</a></li> --}}
                                     <li><a href="/lidsoorten">Lidsoorten</a></li>
                                     <li><a href="/leeftijdscategorieen">Leeftijdscategorieën</a></li>
-                                    <li><a href="/">Boekjaren</a></li>
+                                    <li><a href="/boekjaren">Boekjaren</a></li>
                                 </ul>
                             </div>
                         </li>
