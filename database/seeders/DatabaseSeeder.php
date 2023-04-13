@@ -31,15 +31,19 @@ class DatabaseSeeder extends Seeder
 
         Boekjaar::create([
             'jaartal' => '2023',
+            'basiscontributie' => '100'
         ]);
         Boekjaar::create([
             'jaartal' => '2022',
+            'basiscontributie' => '90'
         ]);
         Boekjaar::create([
             'jaartal' => '2021',
+            'basiscontributie' => '80'
         ]);
         Boekjaar::create([
             'jaartal' => '2020',
+            'basiscontributie' => '70'
         ]);
 
         Leeftijdscategorie::create([

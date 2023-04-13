@@ -13,6 +13,7 @@ class CreateLedenadministratieTables extends Migration
             $table->id();
             $table->timestamps();
             $table->year('jaartal');
+            $table->integer('basiscontributie');
         });
 
         Schema::create('familie', function (Blueprint $table) {

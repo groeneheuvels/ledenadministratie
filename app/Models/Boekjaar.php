@@ -10,7 +10,7 @@ class Boekjaar extends Model
     use HasFactory;
 
     protected $table = 'boekjaar';
-    protected $fillable = ['jaartal'];
+    protected $fillable = ['jaartal', 'basiscontributie'];
 
 
     // Relatie tot contributie via BoekjaarContributie tabel

@@ -28,7 +28,8 @@ class BoekjaarController extends Controller
     public function store(Request $request)
     {
         $formFields = $request->validate([
-            'jaartal' => ['required', 'numeric', 'min:1900', 'max:2100']
+            'jaartal' => ['required', 'numeric', 'min:1900', 'max:2100'],
+            'basiscontributie' => ['required', 'numeric', 'min:1']
         ]);
 
         Boekjaar::create($formFields);
@@ -47,7 +48,8 @@ class BoekjaarController extends Controller
     public function update(Request $request, Boekjaar $boekjaar)
     {
         $formFields = $request->validate([
-            'jaartal' => ['required', 'numeric', 'min:1900', 'max:2100']
+            'jaartal' => ['required', 'numeric', 'min:1900', 'max:2100'],
+            'basiscontributie' => ['required', 'numeric', 'min:1']
         ]);
 
         $boekjaar->update($formFields);

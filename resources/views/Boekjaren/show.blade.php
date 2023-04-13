@@ -8,6 +8,7 @@
                 @foreach ($boekjaren as $boekjaar)
                     <div class="kaart">
                         <p>boekjaar: {{ $boekjaar->jaartal }}</p>
+                        <p>basiscontributie: {{ $boekjaar->basiscontributie }}</p>
                         <div class="knop">
                             <a href="/boekjaren/{{ $boekjaar->id }}/edit">Bewerk boekjaar {{ $boekjaar->omschrijving }}</a>
                         </div>

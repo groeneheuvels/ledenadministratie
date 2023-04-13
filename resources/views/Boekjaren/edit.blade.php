@@ -14,6 +14,14 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
+            <div>
+                <label for="basiscontributie">basiscontributie</label>
+                <input type="number" name="basiscontributie" value="{{ $boekjaar->basiscontributie }}" />
+                @error('basiscontributie')
+                    <p>{{ $message }}</p>
+                    {{-- bericht is in engels evt aanpassen --}}
+                @enderror
+            </div>
             <button class="knop">
                 Opslaan
             </button>
