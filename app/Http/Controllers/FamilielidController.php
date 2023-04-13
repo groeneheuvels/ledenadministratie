@@ -12,21 +12,7 @@ use Illuminate\Support\Facades\DB;
 class FamilielidController extends Controller
 {
 
-    //Calculate Familielid Contributie
-    /*  public function toonContributie(Familielid $familielid)
-    {
-    $boekjaar = date('Y');
-    
-    Contributie::whereHas('familielid', function ($query) use ($familielid) {
-    $query->where('id', $familielid);
-    })
-    ->whereHas('boekjaar', function ($query) use ($boekjaar) {
-    $query->where('jaartal', $boekjaar);
-    })
-    ->sum('contributiebedrag');
-    return $contributiebedrag view('familielid', ['contributiebedrag' => $contributiebedrag]);
-    }
-    */
+
     // Show Familielid
 
     public function show(Familielid $familielid, Familie $familie)
@@ -75,10 +61,8 @@ class FamilielidController extends Controller
 
         $formFields['familie_id'] = $request->input('familie_id');
 
-        // Haal het Lidsoort object op basis van de geselecteerde waarde
         $lidsoort = Lidsoort::findOrFail($request->input('lidsoort'));
 
-        // Sla het corresponderende lidsoort_id op in de tabel
         $formFields['lidsoort_id'] = $lidsoort->id;
 
 
@@ -92,13 +76,9 @@ class FamilielidController extends Controller
     {
 
         $familie = Familie::findOrFail($familielid->familie_id);
-        // dd($familie->lastname);
 
         $lidsoorten = Lidsoort::all();
-        /*dd([
-        'familielid' => $familielid,
-        'familie' => $familie,
-        ]);*/
+
 
         return view('familieleden.edit', [
             'familielid' => $familielid,
