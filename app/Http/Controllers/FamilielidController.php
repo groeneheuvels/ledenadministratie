@@ -62,9 +62,16 @@ class FamilielidController extends Controller
     {
         $formFields = $request->validate([
             'firstname' => 'required',
-            'geboortedatum' => 'required',
+            'geboortedatum' => 'required | date',
             'lidsoort' => 'required'
         ]);
+
+        $inputDate = $request->input('geboortedatum');
+        $currentDate = date('Y-m-d');
+
+        if ($inputDate > $currentDate) {
+            return redirect()->back()->withErrors(['geboortedatum' => 'Geboortedatum kan niet in de toekomst liggen.']);
+        }
 
         $formFields['familie_id'] = $request->input('familie_id');
 
