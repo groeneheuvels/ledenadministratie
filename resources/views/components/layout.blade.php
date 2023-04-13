@@ -44,12 +44,14 @@
                     </li>
                     @auth
                         <li><a href="/families/create">Familie aanmaken</a></li>
-                        <li><a href="/register">Admin account aanmaken</a></li>
+                        <li><a href="/facturen"></a>Facturen</li>
+
                         <li id="submenu-toggle">
                             <div>
                                 Instellingen &gt;
                                 <ul id="submenu">
                                     {{-- <li><a href="/users">Admin accounts bewerken</a></li> --}}
+                                    <li><a href="/register">Admin account aanmaken</a></li>
                                     <li><a href="/lidsoorten">Lidsoorten</a></li>
                                     <li><a href="/leeftijdscategorieen">Leeftijdscategorieën</a></li>
                                     <li><a href="/boekjaren">Boekjaren</a></li>

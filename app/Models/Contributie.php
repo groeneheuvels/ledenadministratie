@@ -6,6 +6,7 @@ use App\Models\Familie;
 use App\Models\Lidsoort;
 use App\Models\Familielid;
 use App\Models\Leeftijdscategorie;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

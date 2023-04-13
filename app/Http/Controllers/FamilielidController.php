@@ -21,12 +21,12 @@ class FamilielidController extends Controller
         $familie = Familie::findOrFail($familielid->familie_id);
 
 
-        $contributiebedrag = $familielid->berekenHuidigContributiebedrag($familielid);
+        // $contributiebedrag = $familielid->berekenHuidigContributiebedrag($familielid);
 
         return view('familieleden.show', [
             'familielid' => $familielid,
             'familie' => $familie,
-            'contributiebedrag' => $contributiebedrag
+            // 'contributiebedrag' => $contributiebedrag
         ]);
     }
 
@@ -67,15 +67,15 @@ class FamilielidController extends Controller
         $formFields['lidsoort_id'] = $lidsoort->id;
 
 
-        $familielid = Familielid::create($formFields);
+        // $familielid = 
+        Familielid::create($formFields);
 
-        $boekjaarJaartal = date('Y'); // huidige boekjaar
-
+        /* $boekjaarJaartal = date('Y'); // huidige boekjaar
         // Zoek het Boekjaar object op basis van jaartal
         $boekjaar = Boekjaar::where('jaartal', $boekjaarJaartal)->firstOrFail();
-
         // Roep de createContributie functie aan met het familielid en gevonden Boekjaar
         Contributie::createContributie($familielid, $boekjaar);
+        */
 
         return redirect('/')->with('message', 'Nieuw Familielid toegevoegd');
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Familie;
 use App\Models\Familielid;
+use App\Models\Contributie;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -32,7 +33,8 @@ class FamilieController extends Controller
 
     public function show(Familie $familie)
     {
-        $totalContributiebedrag = $familie->berekenHuidigTotaalContributiebedrag();
+        // $totalContributiebedrag = $familie->berekenHuidigTotaalContributiebedrag();
+        $totalContributiebedrag = $familie->createJaarfactuur($familie);
         return view('families.show', [
             'familie' => $familie,
             'totalContributiebedrag' => $totalContributiebedrag

@@ -1,7 +1,6 @@
 <x-layout>
     <h2>Familie</h2>
     <x-familie-kaart :familie="$familie" :totalContributiebedrag="$totalContributiebedrag" />
-    {{-- <p>Contributiebedrag: {{ $totalContributiebedrag }}</p> --}}
     @auth
         <div class="knop">
             <a href="/familieleden/create?familie_id={{ $familie->id }}">Nieuw familielid toevoegen</a>
