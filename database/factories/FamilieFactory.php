@@ -13,9 +13,14 @@ class FamilieFactory extends Factory
      */
     public function definition()
     {
+        $postcode = $this->faker->regexify('[1-9][0-9]{3}[A-Z]{2}');
+
         return [
             'lastname' => $this->faker->lastName(),
-            'address' => $this->faker->address()
+            'address' => $this->faker->streetAddress(),
+            'postcode' => $postcode,
+            'city' => $this->faker->city()
         ];
+
     }
 }

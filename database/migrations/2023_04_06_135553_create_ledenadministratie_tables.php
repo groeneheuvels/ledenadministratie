@@ -21,7 +21,10 @@ class CreateLedenadministratieTables extends Migration
             $table->timestamps();
             $table->string('lastname');
             $table->string('address');
+            $table->string('postcode')->nullable();
+            $table->string('city')->nullable();
         });
+
 
         Schema::create('leeftijdscategorie', function (Blueprint $table) {
             $table->id();

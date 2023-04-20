@@ -54,13 +54,19 @@ class FamilieController extends Controller
     {
         $formFields = $request->validate([
             'lastname' => 'required',
-            'address' => ['required', Rule::unique('familie', 'address')]
+            'address' => 'required',
+            'postcode' => 'required',
+            'city' => 'required'
         ]);
+
+        $formFields['address'] = str_replace(',', ' ', $formFields['address']);
+        $formFields['postcode'] = str_replace(' ', '', $formFields['postcode']);
 
         Familie::create($formFields);
 
         return redirect('/')->with('message', 'Nieuwe Familie aangemaakt');
     }
+
 
     // Show Edit Form
     public function edit(Familie $familie)
@@ -74,7 +80,9 @@ class FamilieController extends Controller
     {
         $formFields = $request->validate([
             'lastname' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'postcode' => 'required',
+            'city' => 'required'
         ]);
 
         $familie->update($formFields);

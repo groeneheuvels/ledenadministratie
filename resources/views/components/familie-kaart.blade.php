@@ -4,6 +4,7 @@
     </h3>
     {{-- <p>Familie contributie : &euro; {{ $totalContributiebedrag }}</p> --}}
     <p>{{ $familie->address }}</p>
+    <p>{{ $familie->postcode }} {{ $familie->city }}</p>
     <x-familie-leden :familieleden="$familie->familieleden" />
     <x-facturen :facturen="$familie->facturen" />
 </div>

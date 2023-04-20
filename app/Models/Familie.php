@@ -15,7 +15,7 @@ class Familie extends Model
     protected $table = 'familie';
 
     //alternatieve optie is in AppServiceProvider.php de unguard in te stellen
-    protected $fillable = ['lastname', 'address'];
+    protected $fillable = ['lastname', 'address', 'postcode', 'city'];
 
     // Search functie
     public function scopeFilter($query, array $filters)
