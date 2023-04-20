@@ -11,37 +11,27 @@ use Illuminate\Validation\Rule;
 class FamilieController extends Controller
 {
     // Show all Families
-
-
     public function index()
     {
         $families = Familie::latest()->filter(request(['search']))->SimplePaginate(6);
 
-        $totalen = [];
-        foreach ($families as $familie) {
-            $totalen[$familie->id] = $familie->berekenHuidigTotaalContributiebedrag();
-        }
+
 
         return view('families.index', [
             'families' => $families,
-            'totalen' => $totalen
+
         ]);
     }
-
 
     // Show single Familie
-
     public function show(Familie $familie)
     {
-        // $totalContributiebedrag = $familie->berekenHuidigTotaalContributiebedrag();
-        $totalContributiebedrag = $familie->createJaarfactuur($familie);
+
         return view('families.show', [
             'familie' => $familie,
-            'totalContributiebedrag' => $totalContributiebedrag
+
         ]);
     }
-
-
 
     // Show Create Familie Form
     public function create()
@@ -68,7 +58,7 @@ class FamilieController extends Controller
     }
 
 
-    // Show Edit Form
+    // Show Edit Familie Form
     public function edit(Familie $familie)
     {
         //dd($familie->address);
