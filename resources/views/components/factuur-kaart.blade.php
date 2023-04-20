@@ -1,4 +1,4 @@
-<div class="kaart">
+<div class="kaart" id="{{ $factuur->id }}">
     <p> Factuur aangemaakt op: {{ date('d-m-Y', strtotime($factuur->created_at)) }}</p>
     <p>Betreft: </p>
     <ul>
