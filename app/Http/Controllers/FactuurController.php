@@ -58,13 +58,11 @@ class FactuurController extends Controller
             }
         }
 
-        // $contributies = Contributie::where('factuur_id', '=', $factuur->id)->get();
 
-        // dd($contributies);
 
         $totaalbedrag = Contributie::where('factuur_id', '=', $factuur->id)->sum('contributiebedrag');
 
-        //  dd($totaalbedrag);
+
 
         $factuur->update([
             'factuurbedrag' => $totaalbedrag
@@ -72,7 +70,7 @@ class FactuurController extends Controller
 
 
         // Stuur de gebruiker door naar de factuur pagina
-        return redirect('/')->with('message', 'Factuur aangemaakt');
+        return redirect('/facturen')->with('message', 'Factuur aangemaakt');
     }
 
     // markeer factuur als betaald (of onbetaald)

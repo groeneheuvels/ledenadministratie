@@ -9,6 +9,7 @@ use App\Models\Lidsoort;
 use App\Models\Familielid;
 use Illuminate\Database\Seeder;
 use App\Models\Leeftijdscategorie;
+use Database\Seeders\FactuurSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -99,7 +100,7 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        $this->call(ContributieSeeder::class);
+        $this->call(FactuurSeeder::class);
 
     }
 }
