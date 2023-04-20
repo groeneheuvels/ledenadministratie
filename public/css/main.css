@@ -94,6 +94,10 @@ header a:visited {
   position: relative;
 }
 
+#onbetaald{
+  color: red;
+}
+
 /*container grid, hele website*/
 
 .container-grid {
