@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Factuur;
 use App\Models\Boekjaar;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class BoekjaarController extends Controller
         $boekjaren = Boekjaar::all();
 
         return view('boekjaren.show', [
-            'boekjaren' => $boekjaren
+            'boekjaren' => $boekjaren,
         ]);
     }
 

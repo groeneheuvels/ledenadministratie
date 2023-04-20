@@ -58,6 +58,13 @@ class CreateLedenadministratieTables extends Migration
             $table->foreignId('leeftijdscategorie_id')->nullable()->constrained('leeftijdscategorie')->onDelete('set null');
         });
 
+        Schema::create('factuur', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->integer('factuurbedrag');
+            $table->foreignId('boekjaar_id')->constrained('boekjaar')->onDelete('cascade');
+        });
+
     }
 
 
@@ -68,6 +75,7 @@ class CreateLedenadministratieTables extends Migration
         Schema::dropIfExists('lidsoort');
         Schema::dropIfExists('leeftijdscategorie');
         Schema::dropIfExists('familie');
+        Schema::dropIfExists('factuur');
         Schema::dropIfExists('boekjaar');
     }
 }

@@ -4,6 +4,7 @@ use App\Models\Familie;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FactuurController;
 use App\Http\Controllers\FamilieController;
 use App\Http\Controllers\BoekjaarController;
 use App\Http\Controllers\LidsoortController;
@@ -37,6 +38,10 @@ Route::get('/leeftijdscategorieen', [LeeftijdscategorieController::class, 'show'
 // All boekjaren
 Route::get('/boekjaren', [BoekjaarController::class, 'show']);
 
+//All facturen
+Route::get('/facturen', [FactuurController::class, 'show']);
+
+
 // Show Create Familie Form
 Route::get('/families/create', [FamilieController::class, 'create'])->middleware('auth');
 
@@ -66,6 +71,12 @@ Route::get('boekjaren/create', [BoekjaarController::class, 'create'])->middlewar
 
 //Store Boekjaar Data
 Route::post('/boekjaren', [BoekjaarController::class, 'store'])->middleware('auth');
+
+//Show Create Factuur Form
+Route::get('/facturen/create', [FactuurController::class, 'create'])->middleware('auth');
+
+// Store Factuur Data
+Route::post('/facturen', [FactuurController::class, 'store'])->middleware('auth');
 
 // Show Edit Familie Form
 Route::get('/families/{familie}/edit', [FamilieController::class, 'edit'])->middleware('auth');
@@ -97,7 +108,6 @@ Route::get('/boekjaren/{boekjaar}/edit', [BoekjaarController::class, 'edit'])->m
 // Update Boekjaar
 Route::put('/boekjaren/{boekjaar}', [BoekjaarController::class, 'update'])->middleware('auth');
 
-
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
 
@@ -107,19 +117,23 @@ Route::delete('/lidsoorten/{lidsoort}', [LidsoortController::class, 'destroy'])-
 // Delete Leeftijdscategorie
 Route::delete('/leeftijdscategorieen/{leeftijdscategorie}', [LeeftijdscategorieController::class, 'destroy'])->middleware('auth');
 
-
 // Delete Boekjaar
 Route::delete('/boekjaren/{boekjaar}', [BoekjaarController::class, 'destroy'])->middleware('auth');
 
-
 // Delete Familielid
 Route::delete('/familieleden/{familielid}', [FamilielidController::class, 'destroy'])->middleware('auth');
+
+// Delete factuur
+Route::delete('/facturen/{factuur}', [FactuurController::class, 'destroy'])->middleware('auth');
 
 // Show Single Familie
 Route::get('/families/{familie}', [FamilieController::class, 'show']);
 
 // Show Single familielid
 Route::get('/familieleden/{familielid}', [FamilielidController::class, 'show']);
+
+// Show Single factuur
+// Route::get('/facturen/{factuur}', [FactuurController::class, 'show']);
 
 //Show Register Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('auth');
@@ -132,6 +146,8 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware('a
 
 // Update User
 Route::put('/users/{user}/edit', [UserController::class, 'update'])->middleware('auth');
+
+
 
 // Log User out
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');

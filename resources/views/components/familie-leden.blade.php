@@ -1,4 +1,4 @@
-@props(['familieleden'])
+{{-- @props(['familieleden']) --}}
 
 <ul>
     @foreach ($familieleden as $familielid)

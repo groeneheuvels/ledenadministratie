@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Factuur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,9 +14,15 @@ class Boekjaar extends Model
     protected $fillable = ['jaartal', 'basiscontributie'];
 
 
-    // Relatie tot contributie via BoekjaarContributie tabel
+    // Relatie tot contributie
     public function contributies()
     {
         return $this->hasMany(Contributie::class);
+    }
+
+    // Relationship to Familielid
+    public function facturen()
+    {
+        return $this->hasMany(Factuur::class);
     }
 }

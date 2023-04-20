@@ -19,12 +19,12 @@ class Contributie extends Model
     protected $fillable = ["contributiebedrag", "boekjaar_id", "lidsoort_id", "leeftijdscategorie_id", "familielid_id"];
 
     // Relatie tot boekjaar 
-    public function boekjaren()
+    public function boekjaar()
     {
         return $this->belongsTo(Boekjaar::class);
     }
 
-    // Relatie 
+    // Relatie tot familielid
     public function familielid()
     {
         return $this->belongsTo(Familielid::class);
@@ -32,7 +32,6 @@ class Contributie extends Model
 
     // Relatie tot lidsoort
     // Dit is de lidsoort tentijde van aanmaken van de contributie
-    // kan eventueel weg als je dit niet vast wil leggen
     public function lidsoort()
     {
         return $this->belongsTo(Lidsoort::class);
@@ -40,7 +39,6 @@ class Contributie extends Model
 
     // Relatie tot leeftijdscategorie
     // Dit is de leeftijdscategorie ten tijde van aanmaken van contributie
-    // Kan eventueel weg als je dit niet wil tracken en alleen het bedrag wil bewaren
     public function leeftijdscategorie()
     {
         return $this->belongsTo(Leeftijdscategorie::class);

@@ -15,16 +15,19 @@ class Familielid extends Model
     protected $fillable = ['firstname', 'geboortedatum', 'familie_id', 'lidsoort_id'];
     protected $table = 'familielid';
 
+    // Relationship to familie
     public function familie()
     {
         return $this->belongsTo(Familie::class);
     }
 
+    // relationship to lidsoort
     public function lidsoort()
     {
         return $this->belongsTo(Lidsoort::class);
     }
 
+    //relationship to contributie
     public function contributies()
     {
         return $this->hasMany(Contributie::class);

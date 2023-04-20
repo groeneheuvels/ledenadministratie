@@ -44,7 +44,9 @@
                     </li>
                     @auth
                         <li><a href="/families/create">Familie aanmaken</a></li>
-                        <li><a href="/facturen"></a>Facturen</li>
+                        <li><a href="/facturen">Facturen</a></li>
+
+
 
                         <li id="submenu-toggle">
                             <div>
