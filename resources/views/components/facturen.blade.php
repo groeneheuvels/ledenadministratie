@@ -1,10 +1,12 @@
-<ul>
+@unless (count($facturen) == 0)
     @foreach ($facturen as $factuur)
-        <p>Openstaande facturen:</p>
-        <li>
-            <p> Factuur aangemaakt op: {{ date('d-m-Y', strtotime($factuur->created_at)) }}</p>
-            <p>Bedrag: {{ $factuur->factuurbedrag }}</p>
-            <p>Betaald: </p>
-        </li>
+        <dl>
+            <dt>Boekjaar:</dt>
+            <dd>{{ $factuur->boekjaar->jaartal }}</dd>
+            <dt>Bedrag:</dt>
+            <dd>{{ $factuur->factuurbedrag }}</dd>
+        </dl>
     @endforeach
-</ul>
+@else
+    <p>Geen facturen gevonden</p>
+@endunless
