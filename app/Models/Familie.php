@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Factuur;
 use App\Models\Familielid;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -30,6 +31,13 @@ class Familie extends Model
     {
         return $this->hasMany(Familielid::class);
     }
+
+    // Relationship to Factuur
+    public function facturen()
+    {
+        return $this->hasMany(Factuur::class);
+    }
+
 
     // Bereken Huidig Totaal Familie contributie bedrag
     public function berekenHuidigTotaalContributiebedrag()

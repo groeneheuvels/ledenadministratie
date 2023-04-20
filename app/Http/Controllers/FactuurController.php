@@ -29,6 +29,7 @@ class FactuurController extends Controller
         $families = Familie::all();
         $boekjaren = Boekjaar::all();
 
+
         return view('facturen.create', [
             'families' => $families,
             'boekjaren' => $boekjaren
@@ -36,59 +37,43 @@ class FactuurController extends Controller
     }
 
     // Store Factuur Data
-    /* public function store(Request $request)
+    public function store(Request $request)
     {
-    $familie_id = $request->input('familie_id');
-    $familie = Familie::find($familie_id);
-    $boekjaar = Boekjaar::where('jaartal', '=', $request->input('boekjaar'))->firstOrFail();
-    $familieleden = Familielid::all();
-    // Loop door alle leden heen en creeer een contributie
-    foreach ($familieleden as $familielid) {
-    if ($familielid->familie_id == $familie->id) {
-    // Roep de createContributie functie aan met het familielid en gevonden Boekjaar
-    Contributie::createContributie($familielid, $boekjaar);
-    }
-    $totaalbedrag = Contributie::where('factuur_id', '=', $boekjaar->id)
-    ->sum('contributiebedrag');
-    }
-    // Voeg het totaalbedrag toe aan de factuur tabel
-    Factuur::create([
-    'factuurbedrag' => $totaalbedrag,
-    'boekjaar_id' => $boekjaar->id,
-    ]);
-    // Stuur de gebruiker door naar de factuur pagina
-    return redirect()->back()->with('message', 'Factuur aangemaakt');
-    }
-    } */
+        $boekjaar = Boekjaar::where('id', '=', $request->input('boekjaar'))->firstOrFail();
+        $familie = Familie::where('id', '=', $request->input('familie'))->firstOrFail();
+        $familieleden = Familielid::all();
+
+        $factuur = Factuur::create([
+            'boekjaar_id' => $boekjaar->id,
+            'familie_id' => $familie->id
+        ]);
 
 
+        // Loop door alle leden heen en creeer een contributie
+        foreach ($familieleden as $familielid) {
+            if ($familielid->familie_id == $familie->id) {
+                // Roep de createContributie functie aan met het familielid en gevonden Boekjaar
+                $contributie = Contributie::createContributie($familielid, $boekjaar, $factuur);
 
-    /*  public function store(Request $request)
-    {
-    // Haal het boekjaar op waarvoor de contributie berekend moet worden
-    $boekjaar = Boekjaar::where('jaartal', '=', $request->input('boekjaar'))->firstOrFail();
-    // Haal alle leden op
-    $familieleden = Familielid::all();
-    $aantalFamilieLeden = Familielid::count();
-    // Loop door alle leden heen en creeer een contributie
-    foreach ($familieleden as $familielid) {
-    // Roep de createContributie functie aan met het familielid en gevonden Boekjaar
-    Contributie::createContributie($familielid, $boekjaar);
+            }
+        }
+
+        // $contributies = Contributie::where('factuur_id', '=', $factuur->id)->get();
+
+        // dd($contributies);
+
+        $totaalbedrag = Contributie::where('factuur_id', '=', $factuur->id)->sum('contributiebedrag');
+
+        //  dd($totaalbedrag);
+
+        $factuur->update([
+            'factuurbedrag' => $totaalbedrag
+        ]);
+
+
+        // Stuur de gebruiker door naar de factuur pagina
+        return redirect('/')->with('message', 'Factuur aangemaakt');
     }
-    // Tel de meest recent aangemaakte contributies van het boekjaar op
-    $totaalbedrag = Contributie::where('boekjaar_id', '=', $boekjaar->id)
-    ->orderBy('created_at', 'desc')
-    ->take($aantalFamilieLeden)
-    ->sum('contributiebedrag');
-    // Voeg het totaalbedrag toe aan de factuur tabel
-    Factuur::create([
-    'factuurbedrag' => $totaalbedrag,
-    'boekjaar_id' => $boekjaar->id,
-    ]);
-    // Stuur de gebruiker door naar de factuur pagina
-    return redirect()->back()->with('message', 'Factuur aangemaakt');
-    }
-    */
 
     // Delete Factuur Data
     public function destroy(Factuur $factuur)

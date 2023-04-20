@@ -17,7 +17,7 @@ class Contributie extends Model
 
     protected $table = 'contributie';
 
-    protected $fillable = ["contributiebedrag", "boekjaar_id", "lidsoort_id", "leeftijdscategorie_id", "familielid_id"];
+    protected $fillable = ["contributiebedrag", "boekjaar_id", "lidsoort_id", "leeftijdscategorie_id", "familielid_id", "factuur_id"];
 
     // Relatie tot boekjaar 
     public function boekjaar()
@@ -51,7 +51,7 @@ class Contributie extends Model
         return $this->belongsTo(Factuur::class);
     }
 
-    static function createContributie(Familielid $familielid, Boekjaar $boekjaar)
+    static function createContributie(Familielid $familielid, Boekjaar $boekjaar, Factuur $factuur)
     {
         $leeftijdscategorieen = Leeftijdscategorie::all();
 
@@ -60,6 +60,7 @@ class Contributie extends Model
         $contributiebedrag = $boekjaar->basiscontributie * ($contributiefactor) * (1 - ($leeftijdscategorie->kortingspercentage / 100));
 
         return Contributie::create([
+            'factuur_id' => $factuur->id,
             'familielid_id' => $familielid->id,
             'boekjaar_id' => $boekjaar->id,
             'lidsoort_id' => $familielid->lidsoort_id,

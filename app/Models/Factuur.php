@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Boekjaar;
+use App\Models\Familielid;
 use App\Models\Contributie;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +14,7 @@ class Factuur extends Model
 
     protected $table = 'factuur';
 
-    protected $fillable = ["factuurbedrag", "boekjaar_id"];
+    protected $fillable = ["boekjaar_id", "factuurbedrag", "familie_id"];
 
     // Relationship to boekjaar
     public function boekjaar()
@@ -26,5 +27,15 @@ class Factuur extends Model
     {
         return $this->hasMany(Contributie::class);
     }
+
+    // relationship to familie
+
+    public function familie()
+    {
+        return $this->belongsTo(Familie::class);
+    }
+
+
+
 
 }

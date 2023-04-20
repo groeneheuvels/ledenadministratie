@@ -5,4 +5,5 @@
     {{-- <p>Familie contributie : &euro; {{ $totalContributiebedrag }}</p> --}}
     <p>{{ $familie->address }}</p>
     <x-familie-leden :familieleden="$familie->familieleden" />
+    <x-facturen :facturen="$familie->facturen" />
 </div>

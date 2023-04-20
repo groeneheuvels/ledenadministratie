@@ -48,24 +48,27 @@ class CreateLedenadministratieTables extends Migration
             $table->date('geboortedatum');
         });
 
+        Schema::create('factuur', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->foreignId('boekjaar_id')->nullable()->constrained('boekjaar')->onDelete('cascade');
+            $table->foreignId('familie_id')->nullable()->constrained('familie')->onDelete('cascade');
+            $table->integer('factuurbedrag')->nullable();
+        });
+
         Schema::create('contributie', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('factuur_id')->nullable()->after('id');
+            $table->unsignedBigInteger('factuur_id')->nullable();
             $table->foreign('factuur_id')->references('id')->on('factuur')->onDelete('cascade');
             $table->integer('contributiebedrag');
             $table->foreignId('familielid_id')->nullable()->constrained('familielid')->onDelete('set null');
-            $table->foreignId('boekjaar_id')->constrained('boekjaar')->onDelete('cascade');
+            $table->foreignId('boekjaar_id')->nullable()->constrained('boekjaar')->onDelete('cascade');
             $table->foreignId('lidsoort_id')->nullable()->constrained('lidsoort')->onDelete('set null');
             $table->foreignId('leeftijdscategorie_id')->nullable()->constrained('leeftijdscategorie')->onDelete('set null');
         });
 
-        Schema::create('factuur', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->integer('factuurbedrag');
-            $table->foreignId('boekjaar_id')->constrained('boekjaar')->onDelete('cascade');
-        });
+
 
     }
 
@@ -73,11 +76,12 @@ class CreateLedenadministratieTables extends Migration
     public function down()
     {
         Schema::dropIfExists('contributie');
+        Schema::dropIfExists('factuur');
         Schema::dropIfExists('familielid');
         Schema::dropIfExists('lidsoort');
         Schema::dropIfExists('leeftijdscategorie');
         Schema::dropIfExists('familie');
-        Schema::dropIfExists('factuur');
+
         Schema::dropIfExists('boekjaar');
     }
 }

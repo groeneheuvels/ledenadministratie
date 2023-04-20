@@ -3,13 +3,6 @@
     <div class="create-formulier">
         <form method="POST" action="/facturen">
             @csrf
-            {{-- <div>
-                <label for="boekjaar">Maak factuur aan voor boekjaar: </label>
-                <input type="number" name="boekjaar" value="{{ old('boekjaar') }}" />
-                @error('boekjaar')
-                    <p>{{ $message }}</p>
-                @enderror
-            </div> --}}
             <div>
                 <label for="familie">Maak factuur aan voor familie: </label>
                 <select name="familie" id="familie">

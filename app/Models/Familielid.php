@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Factuur;
 use App\Models\Lidsoort;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +33,7 @@ class Familielid extends Model
     {
         return $this->hasMany(Contributie::class);
     }
+
 
 
     public function berekenLeeftijdscategorie($alle_leeftijdscategorieen, $referentiejaar)
