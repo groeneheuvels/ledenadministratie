@@ -51,6 +51,8 @@ class CreateLedenadministratieTables extends Migration
         Schema::create('contributie', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('factuur_id')->nullable()->after('id');
+            $table->foreign('factuur_id')->references('id')->on('factuur')->onDelete('cascade');
             $table->integer('contributiebedrag');
             $table->foreignId('familielid_id')->nullable()->constrained('familielid')->onDelete('set null');
             $table->foreignId('boekjaar_id')->constrained('boekjaar')->onDelete('cascade');

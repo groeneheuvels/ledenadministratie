@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Factuur;
 use App\Models\Familie;
 use App\Models\Lidsoort;
 use App\Models\Familielid;
@@ -42,6 +43,12 @@ class Contributie extends Model
     public function leeftijdscategorie()
     {
         return $this->belongsTo(Leeftijdscategorie::class);
+    }
+
+    // Relatie tot factuur
+    public function factuur()
+    {
+        return $this->belongsTo(Factuur::class);
     }
 
     static function createContributie(Familielid $familielid, Boekjaar $boekjaar)
