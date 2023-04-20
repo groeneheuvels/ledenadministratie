@@ -14,7 +14,7 @@ class Factuur extends Model
 
     protected $table = 'factuur';
 
-    protected $fillable = ["boekjaar_id", "factuurbedrag", "familie_id"];
+    protected $fillable = ["boekjaar_id", "factuurbedrag", "familie_id", "betaald"];
 
     // Relationship to boekjaar
     public function boekjaar()

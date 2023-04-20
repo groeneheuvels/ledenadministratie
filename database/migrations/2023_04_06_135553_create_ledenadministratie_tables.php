@@ -53,6 +53,7 @@ class CreateLedenadministratieTables extends Migration
             $table->timestamps();
             $table->foreignId('boekjaar_id')->nullable()->constrained('boekjaar')->onDelete('cascade');
             $table->foreignId('familie_id')->nullable()->constrained('familie')->onDelete('cascade');
+            $table->boolean('betaald')->default(false);
             $table->integer('factuurbedrag')->nullable();
         });
 

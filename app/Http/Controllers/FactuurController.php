@@ -75,6 +75,15 @@ class FactuurController extends Controller
         return redirect('/')->with('message', 'Factuur aangemaakt');
     }
 
+    // markeer factuur als betaald (of onbetaald)
+    public function update(Factuur $factuur)
+    {
+        $factuur->betaald = !$factuur->betaald;
+        $factuur->save();
+        return redirect('/')->with('message', 'Factuur status bijgewerkt');
+    }
+
+
     // Delete Factuur Data
     public function destroy(Factuur $factuur)
     {

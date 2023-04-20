@@ -6,7 +6,7 @@
                 @foreach ($facturen as $factuur)
                     <div>
                         <x-factuur-kaart :factuur=$factuur />
-                    </div> <!-- missing closing tag -->
+                    </div>
                 @endforeach
             @else
                 <p>Geen facturen gevonden</p>

@@ -108,6 +108,9 @@ Route::get('/boekjaren/{boekjaar}/edit', [BoekjaarController::class, 'edit'])->m
 // Update Boekjaar
 Route::put('/boekjaren/{boekjaar}', [BoekjaarController::class, 'update'])->middleware('auth');
 
+// Update Factuur
+Route::put('/facturen/{factuur}', [FactuurController::class, 'update'])->middleware('auth');
+
 // Delete Familie
 Route::delete('/families/{familie}', [FamilieController::class, 'destroy'])->middleware('auth');
 
