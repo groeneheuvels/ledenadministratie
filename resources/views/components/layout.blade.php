@@ -23,7 +23,9 @@
 
         <div id="sidebar">
             <nav class="flex-menu">
+                @include('partials._search')
                 <ul class="menu">
+
                     @auth
                         <li>
                             <a href="/users/{{ auth()->user()->id }}/edit">Welkom {{ auth()->user()->name }}</a>
@@ -38,11 +40,7 @@
                                 </div>
                             </form>
                         </li>
-                    @endauth
-                    <li>
-                        @include('partials._search')
-                    </li>
-                    @auth
+
                         <li><a href="/families/create">Familie aanmaken</a></li>
                         <li><a href="/facturen">Facturen</a></li>
 
