@@ -11,7 +11,7 @@
 
 <body>
     <div class="container-grid">
-        <div class="container-grid-item">
+        <div id="header">
             {{-- locatie flashmessage moet nog aangepast --}}
             <x-flash-message />
             <header>
@@ -21,7 +21,7 @@
 
             </header>
         </div>
-        <div class="container-grid-item">
+        <div id="sidebar">
             <nav class="flex-menu">
                 <ul class="menu">
                     @auth
@@ -68,12 +68,12 @@
                 </ul>
             </nav>
         </div>
-        <div class="container-grid-item">
+        <div id="main">
             <main>
                 {{ $slot }}
             </main>
         </div>
-        <div class="container-grid-item">
+        <div id="footer">
             <footer>
                 <h1>footer</h1>
             </footer>

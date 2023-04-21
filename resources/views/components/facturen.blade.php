@@ -11,18 +11,14 @@
                 <dd>{{ $factuur->boekjaar->jaartal }}</dd>
                 <dt>Bedrag:</dt>
                 <dd>{{ $factuur->factuurbedrag }}</dd>
-                <dt>Factuur voldoen:</dt>
-                <dd>
-                    <form method="POST" action="/facturen/{{ $factuur->id }}">
-                        @csrf
-                        @method('PUT')
-
-                        <button type="submit">Markeer als betaald</button>
-
-                    </form>
-                </dd>
             </dl>
         </a>
+        <form method="POST" action="/facturen/{{ $factuur->id }}">
+            @csrf
+            @method('PUT')
+
+            <button type="submit">Markeer als betaald</button>
+        </form>
     @endforeach
 @else
     <p>Geen openstaande facturen gevonden</p>

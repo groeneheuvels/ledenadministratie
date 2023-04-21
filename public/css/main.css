@@ -1,17 +1,24 @@
 /*variabelen, hele website*/
 :root {
-  --kleur-header-footer: hsl(0, 0%, 33%);
-  --kleur-groen: rgb(161 201 191);
-  --kleur-achtergrond: rgb(179 186 192);
+  --kleur-header-footer: hsl(165, 27%, 95%);
+  --kleur-groen: hsl(165, 27%, 71%);
+  --kleur-lichtgroen: hsl(165, 27%, 80%);
+  --kleur-achtergrond: hsl(0, 0%, 90%);
+  --kleur-side: hsl(165, 27%, 50%);
+  --schaduw: 1px 1px 1px hsl(0, 0%, 70%);
+  --kleur-text-donker: hsl(0, 0%, 20%);
+  --kleur-text-licht: hsl(0, 0%, 90%);
 }
 
-main h2{
+main h2 {
   text-align: center;
+  font-weight: lighter;
 }
 
 body {
   background: var(--kleur-achtergrond);
   font-family: sans-serif;
+  color: var(--kleur-text-donker);
 }
 
 header {
@@ -22,10 +29,11 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  box-shadow: var(--schaduw);
 }
 
 
-header a, 
+header a,
 header a:visited {
   color: var(--kleur-groen);
 }
@@ -48,9 +56,9 @@ header a:visited {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
-  background-color: var(--kleur-header-footer);
   color: var(--kleur-groen);
 }
+
 .menu li {
   flex: 1;
   text-align: center;
@@ -94,7 +102,7 @@ header a:visited {
   position: relative;
 }
 
-#onbetaald{
+#onbetaald {
   color: red;
 }
 
@@ -107,62 +115,72 @@ header a:visited {
   gap: 0px;
 }
 
-/* header */
-.container-grid-item:nth-child(1) {
+
+#header {
   grid-column-start: 1;
   grid-column-end: -1;
   grid-row-start: 1;
   grid-row-end: 2;
 }
 
-/*nav*/
-.container-grid-item:nth-child(2) {
+#sidebar {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
+  background-color: var(--kleur-side);
 }
 
-/*main*/
-.container-grid-item:nth-child(3) {
+#main {
   grid-column-start: 2;
   grid-column-end: -1;
   grid-row-start: 2;
   grid-row-end: 3;
 }
-/*footer*/
-.container-grid-item:nth-child(4) {
+
+#footer {
   grid-column-start: 1;
   grid-column-end: -1;
   grid-row-start: 3;
   grid-row-end: -1;
-}
-
- 
-
-
-footer{
   height: 100%;
   background-color: var(--kleur-header-footer);
   color: var(--kleur-groen);
 }
 
-.kaart-container{
+.kaart-container {
   display: flex;
   flex-wrap: wrap;
   align-items: space-evenly;
   justify-content: space-evenly;
 }
 
-
-.kaart{
-  box-shadow: 5px 5px 5px gray;
+.kaart {
+  box-shadow: var(--schaduw);
   background: white;
   flex: 0 0 40%;
   padding: 10px;
   margin: 10px 0;
 }
 
-.create-formulier{
+.create-formulier {
   border: 10px solid var(--kleur-header-footer);
+}
+
+button {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  justify-content: center;
+  font-size: 1rem;
+  background-color: var(--kleur-header-footer);
+  box-shadow: var(--schaduw);
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--kleur-text-donker);
+}
+
+button:hover {
+  background-color: var(--kleur-lichtgroen);
+  color: black;
 }
