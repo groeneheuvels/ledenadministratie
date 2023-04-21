@@ -22,7 +22,7 @@
     <button>
         Opslaan
     </button>
-    <div class="link">
+    <div class="knop">
         <a href="/boekjaren"> Terug </a>
     </div>
 

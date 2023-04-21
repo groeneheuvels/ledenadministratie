@@ -32,7 +32,7 @@
     <button>
         Opslaan
     </button>
-    <div class="link">
+    <div class="knop">
         <a href="/facturen"> Terug </a>
     </div>
 

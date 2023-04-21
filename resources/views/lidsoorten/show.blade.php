@@ -9,13 +9,13 @@
                     <div class="kaart">
                         <p>Lidsoort: {{ $lidsoort->omschrijving }}</p>
                         <p>Contributiefactor: {{ $lidsoort->contributiefactor }}</p>
-                        <div class="link">
+                        <div class="knop">
                             <a href="/lidsoorten/{{ $lidsoort->id }}/edit">Bewerk Lidsoort {{ $lidsoort->omschrijving }}</a>
                         </div>
                         <form method="POST" action="/lidsoorten/{{ $lidsoort->id }}">
                             @csrf
                             @method('DELETE')
-                            <div class="link">
+                            <div class="knop">
                                 <button>
                                     Delete Lidsoort {{ $lidsoort->omschrijving }}
                                 </button>
@@ -23,7 +23,7 @@
                         </form>
                     </div>
                 @endforeach
-                <div class="link">
+                <div class="knop">
                     <a href="/lidsoorten/create">Lidsoort aanmaken</a>
                 </div>
             @else

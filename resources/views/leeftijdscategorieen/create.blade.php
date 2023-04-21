@@ -36,7 +36,7 @@
             <button>
                 Opslaan
             </button>
-            <a class="link"href="/leeftijdscategorieen"> Terug </a>
+            <a class="knop"href="/leeftijdscategorieen"> Terug </a>
         </form>
     </div>
 </x-layout>
