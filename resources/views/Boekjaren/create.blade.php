@@ -1,8 +1,9 @@
 <x-layout>
-    <div class="create-formulier">
-        <form method="POST" action="/boekjaren">
+    <h2>Boekjaar aanmaken</h2>
+    <div class="kaart-container">
+        <form class=kaart method="POST" action="/boekjaren">
             @csrf
-            <div class="form-field>
+            <div class="form-field">
                 <label for="jaartal">jaartal</label>
                 <input type="number" name="jaartal" value="{{ old('jaartal') }}" />
                 @error('jaartal')
@@ -18,11 +19,14 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
+
+            <div class="form-field">
+                <button>
+                    Opslaan
+                </button>
+            </div>
+            <div class="form-field"><a class="knop" href="/boekjaren"> Terug </a></div>
+        </form>
     </div>
-    <button>
-        Opslaan
-    </button>
-    <a class="knop" href="/boekjaren"> Terug </a>
-    </form>
     </div>
 </x-layout>

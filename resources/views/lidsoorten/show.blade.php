@@ -9,26 +9,34 @@
                     <div class="kaart">
                         <p>Lidsoort: {{ $lidsoort->omschrijving }}</p>
                         <p>Contributiefactor: {{ $lidsoort->contributiefactor }}</p>
-                        <div class="knop">
-                            <a href="/lidsoorten/{{ $lidsoort->id }}/edit">Bewerk Lidsoort {{ $lidsoort->omschrijving }}</a>
-                        </div>
+
+                        <div class="form-field"><a class="knop" href="/lidsoorten/{{ $lidsoort->id }}/edit">Bewerk Lidsoort
+                                {{ $lidsoort->omschrijving }}</a></div>
+
                         <form method="POST" action="/lidsoorten/{{ $lidsoort->id }}">
                             @csrf
                             @method('DELETE')
-                            <div class="knop">
-                                <button>
+
+                            <div class="form-field">
+                                <button class="danger">
                                     Delete Lidsoort {{ $lidsoort->omschrijving }}
                                 </button>
                             </div>
+
                         </form>
                     </div>
                 @endforeach
-                <div class="knop">
-                    <a href="/lidsoorten/create">Lidsoort aanmaken</a>
-                </div>
             @else
                 <p>Geen lidsoorten gevonden</p>
             @endunless
+
+        </div>
+
+        <div class="kaart-container">
+            <div class="kaart">
+
+                <a class="knop" href="/lidsoorten/create">Lidsoort aanmaken</a>
+            </div>
         </div>
     @endauth
 

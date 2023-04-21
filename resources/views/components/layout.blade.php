@@ -24,17 +24,21 @@
         <div id="sidebar">
             <nav class="flex-menu">
                 @include('partials._search')
+
+                <h2>
+                    Welkom {{ auth()->user()->name }}
+                </h2>
                 <ul class="menu">
 
                     @auth
                         <li>
-                            <a href="/users/{{ auth()->user()->id }}/edit">Welkom {{ auth()->user()->name }}</a>
+                            <a href="/users/{{ auth()->user()->id }}/edit">Mijn account bewerken</a>
                         </li>
                         <li><a href="/families/create">Familie aanmaken</a></li>
                         <li><a href="/facturen">Facturen</a></li>
                         <li id="submenu-toggle">
                             <div>
-                                Instellingen &gt;
+                                Instellingen
                                 <ul id="submenu">
                                     {{-- <li><a href="/users">Admin accounts bewerken</a></li> --}}
                                     <li><a href="/register">Admin account aanmaken</a></li>

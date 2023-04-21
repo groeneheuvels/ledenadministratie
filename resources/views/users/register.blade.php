@@ -2,7 +2,7 @@
     <div>
         <div>
             <h2>
-                Registeer
+                Admin account aanmaken
             </h2>
         </div>
         <div class="kaart-container">

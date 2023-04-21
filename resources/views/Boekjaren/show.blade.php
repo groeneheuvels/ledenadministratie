@@ -1,6 +1,6 @@
 <x-layout>
 
-    <h2>boekjaren</h2>
+    <h2>Boekjaren</h2>
     @auth
         <div class="kaart-container">
 
@@ -9,12 +9,14 @@
                     <div>
                         <x-boekjaar-kaart :boekjaar=$boekjaar />
                 @endforeach
-                <div class="knop">
-                    <a href="/boekjaren/create">boekjaar aanmaken</a>
-                </div>
             @else
                 <p>Geen boekjaren gevonden</p>
             @endunless
+        </div>
+
+
+        <div class="kaart-container">
+            <div class="kaart"><a class="knop" href="/boekjaren/create">boekjaar aanmaken</a></div>
         </div>
     @endauth
 
