@@ -6,4 +6,5 @@
     <p>{{ $familie->postcode }} {{ $familie->city }}</p>
     <x-familie-leden :familieleden="$familie->familieleden" />
     <x-facturen :facturen="$familie->facturen" />
+
 </div>

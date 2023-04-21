@@ -1,22 +1,27 @@
 <x-layout>
-
-    <div class="kaart">
-        <p>{{ $familielid->firstname }} <a href="/families/{{ $familie['id'] }}"> {{ $familie->lastname }}</a></p>
-        <p>Soort lid: {{ $familielid->lidsoort->omschrijving }} </p>
-        <p>Geboortedatum: {{ $familielid->geboortedatum }} </p>
-        <p>Adres: {{ $familie->address }}</p>
-        {{-- <p>Contributie {{ date('Y') }}: &euro; {{ $contributiebedrag }}</p> --}}
-    </div>
-    <div class="knop">
-        <a href="/familieleden/{{ $familielid->id }}/edit">Bewerk Familielid</a>
-    </div>
-    <form method="POST" action="/familieleden/{{ $familielid->id }}">
-        @csrf
-        @method('DELETE')
-        <div class="knop">
-            <button>
-                Delete Familielid {{ $familielid->firstname }} {{ $familie->lastname }}
-            </button>
+    <h2>Familielid {{ $familielid->firstname }}</h2>
+    <div class="kaart-container">
+        <div class="kaart">
+            <p>{{ $familielid->firstname }} <a href="/families/{{ $familie['id'] }}"> {{ $familie->lastname }}</a></p>
+            <p>Soort lid: {{ $familielid->lidsoort->omschrijving }} </p>
+            <p>Geboortedatum: {{ $familielid->geboortedatum }} </p>
+            <p>Adres: {{ $familie->address }}</p>
         </div>
-    </form>
+    </div>
+
+    <div class="kaart-container">
+        <div class="kaart">
+            <div class="form-field"><a class="knop" href="/familieleden/{{ $familielid->id }}/edit">Bewerk Familielid</a>
+            </div>
+            <form method="POST" action="/familieleden/{{ $familielid->id }}">
+                @csrf
+                @method('DELETE')
+                <div class="form-field">
+                    <button class="danger">
+                        Delete Familielid {{ $familielid->firstname }} {{ $familie->lastname }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </x-layout>
