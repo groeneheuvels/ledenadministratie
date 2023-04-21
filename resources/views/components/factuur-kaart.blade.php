@@ -15,7 +15,7 @@
             <dt>Familie:</dt>
             <dd>{{ $factuur->familie->lastname }}</dd>
             <dt>Bedrag:</dt>
-            <dd>{{ $factuur->factuurbedrag }}</dd>
+            <dd> € {{ $factuur->factuurbedrag }}</dd>
 
 
             @if ($factuur->betaald)

@@ -10,7 +10,7 @@
                 <dt>Factuur, boekjaar:</dt>
                 <dd>{{ $factuur->boekjaar->jaartal }}</dd>
                 <dt>Bedrag:</dt>
-                <dd>{{ $factuur->factuurbedrag }}</dd>
+                <dd> € {{ $factuur->factuurbedrag }}</dd>
             </dl>
         </a>
         <form method="POST" action="/facturen/{{ $factuur->id }}">

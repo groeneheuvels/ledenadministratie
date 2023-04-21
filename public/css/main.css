@@ -115,6 +115,10 @@ ul.menu {
   text-align: left;
 }
 
+#submenu li a {
+  color: var(--kleur-text-donker);
+}
+
 #submenu-toggle {
   position: relative;
 }

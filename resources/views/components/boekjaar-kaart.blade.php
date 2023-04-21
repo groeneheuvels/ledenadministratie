@@ -1,7 +1,6 @@
 <div class="kaart">
     <p>boekjaar: {{ $boekjaar->jaartal }}</p>
-    <p>basiscontributie: {{ $boekjaar->basiscontributie }}</p>
-    <x-facturen :facturen="$boekjaar->facturen" />
+    <p>basiscontributie: € {{ $boekjaar->basiscontributie }}</p>
     <div class="knop">
         <a href="/boekjaren/{{ $boekjaar->id }}/edit">Bewerk boekjaar</a>
     </div>
@@ -9,7 +8,7 @@
         @csrf
         @method('DELETE')
         <div class="knop">
-            <button>
+            <button class=danger>
                 Delete boekjaar {{ $boekjaar->omschrijving }}
             </button>
         </div>
