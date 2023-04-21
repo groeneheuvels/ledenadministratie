@@ -208,6 +208,10 @@ button.danger:hover {
   margin-bottom: 1rem;
 }
 
+.form-field:last-child {
+  margin-bottom: 0;
+}
+
 input {
   box-sizing: border-box;
   padding: 0.5rem;
