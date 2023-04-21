@@ -11,14 +11,14 @@
                         <p>ondergrens: {{ $leeftijdscategorie->ondergrens }}</p>
                         <p>bovengrens: {{ $leeftijdscategorie->bovengrens }}</p>
                         <p>kortingspercentage: {{ $leeftijdscategorie->kortingspercentage }}</p>
-                        <div class="knop">
+                        <div class="link">
                             <a href="/leeftijdscategorieen/{{ $leeftijdscategorie->id }}/edit">Bewerk leeftijdscategorie
                                 {{ $leeftijdscategorie->omschrijving }}</a>
                         </div>
                         <form method="POST" action="/leeftijdscategorieen/{{ $leeftijdscategorie->id }}">
                             @csrf
                             @method('DELETE')
-                            <div class="knop">
+                            <div class="link">
                                 <button>
                                     Delete leeftijdscategorie {{ $leeftijdscategorie->omschrijving }}
                                 </button>
@@ -26,7 +26,7 @@
                         </form>
                     </div>
                 @endforeach
-                <div class="knop">
+                <div class="link">
                     <a href="/leeftijdscategorieen/create">leeftijdscategorie aanmaken</a>
                 </div>
             @else

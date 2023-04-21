@@ -47,7 +47,7 @@
     <form method="POST" action="/facturen/{{ $factuur->id }}">
         @csrf
         @method('DELETE')
-        <div class="knop">
+        <div class="link">
             <button>
                 Delete factuur
             </button>

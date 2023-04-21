@@ -25,7 +25,7 @@
             @if (count($facturen) == 0)
                 <p>Geen facturen gevonden</p>
             @endif
-            <a class="knop"href="/facturen/create">factuur aanmaken</a>
+            <a class="link"href="/facturen/create">factuur aanmaken</a>
 
         </div>
     @endauth

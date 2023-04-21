@@ -7,13 +7,13 @@
         <p>Adres: {{ $familie->address }}</p>
         {{-- <p>Contributie {{ date('Y') }}: &euro; {{ $contributiebedrag }}</p> --}}
     </div>
-    <div class="knop">
+    <div class="link">
         <a href="/familieleden/{{ $familielid->id }}/edit">Bewerk Familielid</a>
     </div>
     <form method="POST" action="/familieleden/{{ $familielid->id }}">
         @csrf
         @method('DELETE')
-        <div class="knop">
+        <div class="link">
             <button>
                 Delete Familielid {{ $familielid->firstname }} {{ $familie->lastname }}
             </button>

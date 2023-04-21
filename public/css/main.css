@@ -166,7 +166,8 @@ footer {
   padding: 1rem;
 }
 
-button {
+button,
+a.knop {
   display: flex;
   width: 100%;
   padding: 0.5rem 1rem;
@@ -177,11 +178,17 @@ button {
   border: 0;
   border-radius: 0.25rem;
   color: var(--kleur-text-donker);
+  text-decoration: none;
 }
 
 button:hover {
   background-color: var(--kleur-lichtgroen);
   color: black;
+}
+
+button.danger {
+
+  color: red;
 }
 
 .form-field {
@@ -207,7 +214,17 @@ input {
   padding: 1rem;
 }
 
-a.knop {
+a.link {
   padding: 1rem;
   display: flex;
+}
+
+.options {
+  display: flex;
+  gap: 1rem;
+}
+
+.options a.knop {
+  display: flex;
+  flex: 1 1 0;
 }

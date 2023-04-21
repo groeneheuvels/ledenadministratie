@@ -44,7 +44,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div class="knop">
+            <div class="link">
                 <button type="submit">
                     Registreer
                 </button>

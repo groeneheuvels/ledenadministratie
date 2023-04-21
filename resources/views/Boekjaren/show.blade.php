@@ -9,7 +9,7 @@
                     <div>
                         <x-boekjaar-kaart :boekjaar=$boekjaar />
                 @endforeach
-                <div class="knop">
+                <div class="link">
                     <a href="/boekjaren/create">boekjaar aanmaken</a>
                 </div>
             @else
