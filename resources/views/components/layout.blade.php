@@ -11,16 +11,16 @@
 
 <body>
     <div class="container-grid">
-        <div id="header">
-            {{-- locatie flashmessage moet nog aangepast --}}
-            <x-flash-message />
-            <header>
-                <h1>
-                    <a href="/">Ledenadministratie</a>
-                </h1>
 
-            </header>
-        </div>
+        {{-- locatie flashmessage moet nog aangepast --}}
+        <x-flash-message />
+        <header>
+            <h1>
+                <a href="/">Ledenadministratie</a>
+            </h1>
+
+        </header>
+
         <div id="sidebar">
             <nav class="flex-menu">
                 <ul class="menu">
@@ -68,16 +68,16 @@
                 </ul>
             </nav>
         </div>
-        <div id="main">
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-        <div id="footer">
-            <footer>
-                <h1>footer</h1>
-            </footer>
-        </div>
+
+        <main>
+            {{ $slot }}
+        </main>
+
+
+        <footer>
+            <h1>footer</h1>
+        </footer>
+
     </div>
 </body>
 

@@ -10,6 +10,13 @@
   --kleur-text-licht: hsl(0, 0%, 90%);
 }
 
+main {
+  grid-column-start: 2;
+  grid-column-end: -1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
 main h2 {
   text-align: center;
   font-weight: lighter;
@@ -30,6 +37,10 @@ header {
   align-items: center;
   flex-direction: row;
   box-shadow: var(--schaduw);
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 
@@ -116,12 +127,6 @@ header a:visited {
 }
 
 
-#header {
-  grid-column-start: 1;
-  grid-column-end: -1;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
 
 #sidebar {
   grid-column-start: 1;
@@ -131,14 +136,9 @@ header a:visited {
   background-color: var(--kleur-side);
 }
 
-#main {
-  grid-column-start: 2;
-  grid-column-end: -1;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
 
-#footer {
+
+footer {
   grid-column-start: 1;
   grid-column-end: -1;
   grid-row-start: 3;
