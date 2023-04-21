@@ -2,7 +2,7 @@
     <div class="create-formulier">
         <form method="POST" action="/boekjaren">
             @csrf
-            <div>
+            <div class="form-field>
                 <label for="jaartal">jaartal</label>
                 <input type="number" name="jaartal" value="{{ old('jaartal') }}" />
                 @error('jaartal')
@@ -10,12 +10,14 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
-            <label for="basiscontributie">basiscontributie</label>
-            <input type="number" name="basiscontributie" value="{{ old('basiscontributie') }}" />
-            @error('basiscontributie')
-                <p>{{ $message }}</p>
-                {{-- bericht is in engels evt aanpassen --}}
-            @enderror
+            <div class="form-field">
+                <label for="basiscontributie">basiscontributie</label>
+                <input type="number" name="basiscontributie" value="{{ old('basiscontributie') }}" />
+                @error('basiscontributie')
+                    <p>{{ $message }}</p>
+                    {{-- bericht is in engels evt aanpassen --}}
+                @enderror
+            </div>
     </div>
     <button class="knop">
         Opslaan

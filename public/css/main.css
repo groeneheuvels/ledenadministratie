@@ -126,8 +126,6 @@ header a:visited {
   gap: 0px;
 }
 
-
-
 #sidebar {
   grid-column-start: 1;
   grid-column-end: 2;
@@ -135,8 +133,6 @@ header a:visited {
   grid-row-end: 3;
   background-color: var(--kleur-side);
 }
-
-
 
 footer {
   grid-column-start: 1;
@@ -183,4 +179,19 @@ button {
 button:hover {
   background-color: var(--kleur-lichtgroen);
   color: black;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  box-shadow: var(--schaduw);
 }

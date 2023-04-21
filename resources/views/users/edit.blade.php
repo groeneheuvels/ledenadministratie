@@ -7,7 +7,7 @@
         <form method="POST" action="/users/{{ $user->id }}/edit">
             @csrf
             @method('PUT')
-            <div>
+            <div class="form-field">
                 <label for="name">
                     Naam
                 </label>
@@ -16,7 +16,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="email">
                     Email
                 </label>
@@ -25,7 +25,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="password">
                     Nieuw wachtwoord
                 </label>
@@ -34,7 +34,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="password_confirmation">
                     Bevestig nieuw wachtwoord
                 </label>

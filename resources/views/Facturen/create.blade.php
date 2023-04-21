@@ -3,7 +3,7 @@
     <div class="create-formulier">
         <form method="POST" action="/facturen">
             @csrf
-            <div>
+            <div class="form-field">
                 <label for="familie">Maak factuur aan voor familie: </label>
                 <select name="familie" id="familie">
                     @foreach ($families as $familie)
@@ -15,7 +15,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="boekjaar">Betreft boekjaar: </label>
                 <select name="boekjaar" id="boekjaar">
                     @foreach ($boekjaren as $boekjaar)

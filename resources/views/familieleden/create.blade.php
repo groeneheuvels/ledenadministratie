@@ -9,7 +9,7 @@
             <div>
                 <input type="hidden" name="familie_id" value="{{ $familie->id }}">
             </div>
-            <div>
+            <div class="form-field">
                 <label for="firstname">Voornaam</label>
                 <input type="text" name="firstname" value="{{ old('firstname') }}" />
                 @error('firstname')
@@ -17,7 +17,7 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="geboortedatum">Geboortedatum</label>
                 <input type="date" name="geboortedatum" value="{{ old('geboortedatum') }}"
                     placeholder="YYYY/MM/DD" />
@@ -25,7 +25,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="lidsoort">Lidsoort</label>
                 <select name="lidsoort" id="lidsoort">
                     @foreach ($lidsoorten as $lidsoort)

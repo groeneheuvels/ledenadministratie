@@ -7,7 +7,7 @@
         <form method="POST" action="/familieleden/{{ $familielid->id }}">
             @csrf
             @method('PUT')
-            <div>
+            <div class="form-field">
                 <label for="firstname">Voornaam</label>
                 <input type="text" name="firstname" value="{{ $familielid->firstname }}" />
                 @error('firstname')
@@ -15,7 +15,7 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="geboortedatum">Geboortedatum</label>
                 <input type="date" name="geboortedatum" value="{{ $familielid->geboortedatum }}" />
                 @error('geboortedatum')

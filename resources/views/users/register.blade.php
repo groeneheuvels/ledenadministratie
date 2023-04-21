@@ -8,7 +8,7 @@
         </div>
         <form method="POST" action="/users">
             @csrf
-            <div>
+            <div class="form-field">
                 <label for="name">
                     Naam
                 </label>
@@ -17,7 +17,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="email">
                     Email
                 </label>
@@ -26,7 +26,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="password">
                     wachtwoord
                 </label>
@@ -35,7 +35,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="password_confirmation">
                     Bevestig wachtwoord
                 </label>

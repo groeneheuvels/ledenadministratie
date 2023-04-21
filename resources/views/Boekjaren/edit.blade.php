@@ -6,7 +6,7 @@
         <form method="POST" action="/boekjaren/{{ $boekjaar->id }}">
             @csrf
             @method('PUT')
-            <div>
+            <div class="form-field">
                 <label for="jaartal">jaartal</label>
                 <input type="number" name="jaartal" value="{{ $boekjaar->jaartal }}" />
                 @error('jaartal')
@@ -14,7 +14,7 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="basiscontributie">basiscontributie</label>
                 <input type="number" name="basiscontributie" value="{{ $boekjaar->basiscontributie }}" />
                 @error('basiscontributie')

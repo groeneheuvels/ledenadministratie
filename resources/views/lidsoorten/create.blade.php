@@ -2,7 +2,7 @@
     <div class="create-formulier">
         <form method="POST" action="/lidsoorten">
             @csrf
-            <div>
+            <div class="form-field">
                 <label for="omschrijving">Omschrijving</label>
                 <input type="text" name="omschrijving" value="{{ old('omschrijving') }}" />
                 @error('omschrijving')
@@ -10,7 +10,7 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
-            <div>
+            <div class="form-field">
                 <label for="contributiefactor">Contributiefactor</label>
                 <input type="text" name="contributiefactor" value="{{ old('contributiefactor') }}" />
                 @error('contributiefactor')
