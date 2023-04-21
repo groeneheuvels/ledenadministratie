@@ -17,7 +17,7 @@
             @csrf
             @method('PUT')
 
-            <button type="submit">Markeer als betaald</button>
+            <div class="form-field"><button type="submit">Markeer als betaald</button></div>
         </form>
     @endforeach
 @else

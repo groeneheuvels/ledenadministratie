@@ -15,7 +15,7 @@
                 <form method="POST" action="/facturen/{{ $factuur->id }}">
                     @csrf
                     @method('PUT')
-                    <button type="submit">Markeer als onbetaald</button>
+                    <div class="form-field"><button type="submit">Markeer als onbetaald</button></div>
                 </form>
             </div>
         @else
@@ -28,15 +28,16 @@
                 <dd>{{ $factuur->familie->lastname }}</dd>
                 <dt>Bedrag:</dt>
                 <dd>{{ $factuur->factuurbedrag }}</dd>
-                <dd>
-                    <form method="POST" action="/facturen/{{ $factuur->id }}">
-                        @csrf
-                        @method('PUT')
 
-                        <button type="submit">Markeer als betaald</button>
 
-                    </form>
-                </dd>
+
+                <form method="POST" action="/facturen/{{ $factuur->id }}">
+                    @csrf
+                    @method('PUT')
+
+                    <div class="form-field"><button type="submit">Markeer als betaald</button></div>
+
+                </form>
             </div>
         @endif
 
@@ -47,10 +48,12 @@
     <form method="POST" action="/facturen/{{ $factuur->id }}">
         @csrf
         @method('DELETE')
-        <div class="knop">
-            <button>
+
+        <div class="form-field">
+            <button class=danger>
                 Delete factuur
             </button>
         </div>
+
     </form>
 </div>

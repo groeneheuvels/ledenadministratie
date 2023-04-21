@@ -1,7 +1,6 @@
 <x-layout>
     <div>
-        <h2>Bewerk Familie</h2>
-        <p>Bewerk: Familie {{ $familie->lastname }}</p>
+        <h2>Bewerk Familie {{ $familie->lastname }}</h2>
     </div>
     <div class="kaart">
         <form method="POST" action="/families/{{ $familie->id }}">
@@ -36,9 +35,11 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <button>
-                Opslaan
-            </button>
+            <div class="form-field">
+                <button>
+                    Opslaan
+                </button>
+            </div>
             <a class="knop" href="/families/{{ $familie->id }}">Terug</a>
         </form>
     </div>

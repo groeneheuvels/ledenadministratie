@@ -55,9 +55,11 @@
                     <form method="POST" action="/logout">
                         @csrf
                         <div class="padding">
-                            <button type="submit">
-                                Uitloggen
-                            </button>
+                            <div class="form-field">
+                                <button type="submit">
+                                    Uitloggen
+                                </button>
+                            </div>
                         </div>
                     </form>
                 @endauth
@@ -70,7 +72,7 @@
 
 
         <footer>
-            <h1>footer</h1>
+
         </footer>
 
     </div>
