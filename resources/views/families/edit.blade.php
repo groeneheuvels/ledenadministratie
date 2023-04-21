@@ -39,7 +39,7 @@
             <button>
                 Opslaan
             </button>
-            <a href="/families/{{ $familie->id }}">Terug</a>
+            <a class="knop" href="/families/{{ $familie->id }}">Terug</a>
         </form>
     </div>
 </x-layout>

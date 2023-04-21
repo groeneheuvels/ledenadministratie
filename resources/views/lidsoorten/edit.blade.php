@@ -26,7 +26,7 @@
             <button>
                 Opslaan
             </button>
-            <a href="/lidsoorten">Terug</a>
+            <a class="knop" href="/lidsoorten">Terug</a>
         </form>
     </div>
 </x-layout>

@@ -32,11 +32,7 @@
     <button>
         Opslaan
     </button>
-    <div class="knop">
-        <a href="/facturen"> Terug </a>
-    </div>
-
-
+    <a class="knop" href="/facturen"> Terug </a>
     </form>
     </div>
 
