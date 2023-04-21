@@ -23,7 +23,7 @@
             </div>
 
 
-            <button class="knop">
+            <button>
                 Opslaan
             </button>
             <a href="/lidsoorten">Terug</a>

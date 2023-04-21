@@ -19,7 +19,7 @@
                 @enderror
             </div>
     </div>
-    <button class="knop">
+    <button>
         Opslaan
     </button>
     <div class="knop">

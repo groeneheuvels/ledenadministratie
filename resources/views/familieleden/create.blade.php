@@ -37,12 +37,10 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <button class="knop">
+            <button>
                 Opslaan
             </button>
-            <div class="knop">
-                <a href="/families/{{ $familie['id'] }}"> Terug </a>
-            </div>
+            <a class="knop" href="/families/{{ $familie['id'] }}"> Terug </a>
         </form>
     </div>
 </x-layout>

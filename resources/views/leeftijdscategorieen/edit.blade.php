@@ -35,7 +35,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <button class="knop">
+            <button>
                 Opslaan
             </button>
             <a href="/leeftijdscategorieen">Terug</a>

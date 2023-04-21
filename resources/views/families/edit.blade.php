@@ -36,7 +36,7 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <button class="knop">
+            <button>
                 Opslaan
             </button>
             <a href="/families/{{ $familie->id }}">Terug</a>

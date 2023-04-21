@@ -36,7 +36,7 @@
                     @enderror
                 </div>
 
-                <button class="knop">
+                <button>
                     Opslaan
                 </button>
                 <a href="/familieleden/{{ $familielid->id }}">Terug</a>

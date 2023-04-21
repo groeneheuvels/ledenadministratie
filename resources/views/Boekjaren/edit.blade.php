@@ -22,7 +22,7 @@
                     {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
-            <button class="knop">
+            <button>
                 Opslaan
             </button>
             <a href="/boekjaren">Terug</a>

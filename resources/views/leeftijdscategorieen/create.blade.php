@@ -33,14 +33,10 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <button class="knop">
+            <button>
                 Opslaan
             </button>
-            <div class="knop">
-                <a href="/leeftijdscategorieen"> Terug </a>
-            </div>
-
-
+            <a class="knop"href="/leeftijdscategorieen"> Terug </a>
         </form>
     </div>
 </x-layout>

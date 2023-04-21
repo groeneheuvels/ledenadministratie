@@ -1,21 +1,5 @@
 <x-layout>
-    {{--  <h2>Facturen</h2>
-    @auth
-        <div class="kaart-container">
-            @unless (count($facturen) == 0)
-                @foreach ($facturen as $factuur)
-                    <div>
-                        <x-factuur-kaart :factuur=$factuur />
-                    </div>
-                @endforeach
-            @else
-                <p>Geen facturen gevonden</p>
-            @endunless
-            <div class="knop">
-                <a href="/facturen/create">factuur aanmaken</a>
-            </div>
-        </div>
-    @endauth --}}
+
 
     <h2>Facturen</h2>
     @auth
@@ -41,9 +25,8 @@
             @if (count($facturen) == 0)
                 <p>Geen facturen gevonden</p>
             @endif
-            <div class="knop">
-                <a href="/facturen/create">factuur aanmaken</a>
-            </div>
+            <a class="knop"href="/facturen/create">factuur aanmaken</a>
+
         </div>
     @endauth
 
