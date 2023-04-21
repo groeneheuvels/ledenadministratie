@@ -2,35 +2,29 @@
 
     <dl>
 
-        @if ($factuur->betaald)
-            <div id="betaald">
-                <p>Betaald</p>
-                <p> Factuur aangemaakt op: {{ date('d-m-Y', strtotime($factuur->created_at)) }}</p>
-                <dt>Boekjaar:</dt>
-                <dd>{{ $factuur->boekjaar->jaartal }}</dd>
-                <dt>Familie:</dt>
-                <dd>{{ $factuur->familie->lastname }}</dd>
-                <dt>Bedrag:</dt>
-                <dd>{{ $factuur->factuurbedrag }}</dd>
+        <div>
+
+            @if ($factuur->betaald)
+                <h4 class="betaald">Betaald ✔</h4>
+            @else
+                <h4 class="onbetaald">Nog te betalen ⚠</h4>
+            @endif
+            <p> Factuur aangemaakt op: {{ date('d-m-Y', strtotime($factuur->created_at)) }}</p>
+            <dt>Boekjaar:</dt>
+            <dd>{{ $factuur->boekjaar->jaartal }}</dd>
+            <dt>Familie:</dt>
+            <dd>{{ $factuur->familie->lastname }}</dd>
+            <dt>Bedrag:</dt>
+            <dd>{{ $factuur->factuurbedrag }}</dd>
+
+
+            @if ($factuur->betaald)
                 <form method="POST" action="/facturen/{{ $factuur->id }}">
                     @csrf
                     @method('PUT')
                     <div class="form-field"><button type="submit">Markeer als onbetaald</button></div>
                 </form>
-            </div>
-        @else
-            <div id="onbetaald">
-                <dt>Nog te betalen</dt>
-                <p> Factuur aangemaakt op: {{ date('d-m-Y', strtotime($factuur->created_at)) }}</p>
-                <dt>Boekjaar:</dt>
-                <dd>{{ $factuur->boekjaar->jaartal }}</dd>
-                <dt>Familie:</dt>
-                <dd>{{ $factuur->familie->lastname }}</dd>
-                <dt>Bedrag:</dt>
-                <dd>{{ $factuur->factuurbedrag }}</dd>
-
-
-
+            @else
                 <form method="POST" action="/facturen/{{ $factuur->id }}">
                     @csrf
                     @method('PUT')
@@ -38,10 +32,8 @@
                     <div class="form-field"><button type="submit">Markeer als betaald</button></div>
 
                 </form>
-            </div>
-        @endif
-
-
+            @endif
+        </div>
     </dl>
 
 
