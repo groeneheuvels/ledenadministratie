@@ -201,6 +201,10 @@ button.danger:hover {
   margin: 10px 0;
 }
 
+.kaart .kaart {
+  background-color: hsl(165, 27%, 99%);
+}
+
 .form-field {
   display: flex;
   flex-direction: column;
