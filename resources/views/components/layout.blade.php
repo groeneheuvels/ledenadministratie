@@ -24,10 +24,11 @@
         <div id="sidebar">
             <nav class="flex-menu">
                 @include('partials._search')
-
-                <h2>
-                    Welkom {{ auth()->user()->name }}
-                </h2>
+                @auth
+                    <h2>
+                        Welkom {{ auth()->user()->name }}
+                    </h2>
+                @endauth
                 <ul class="menu">
 
                     @auth
