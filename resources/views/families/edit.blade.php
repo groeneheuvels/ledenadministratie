@@ -3,7 +3,7 @@
         <h2>Bewerk Familie</h2>
         <p>Bewerk: Familie {{ $familie->lastname }}</p>
     </div>
-    <div class="edit-formulier">
+    <div class="kaart">
         <form method="POST" action="/families/{{ $familie->id }}">
             @csrf
             @method('PUT')

@@ -2,7 +2,7 @@
     <div>
         <p>Bewerk leeftijdscategorie: {{ $leeftijdscategorie->omschrijving }}</p>
     </div>
-    <div class="edit-formulier">
+    <div class="kaart">
         <form method="POST" action="/leeftijdscategorieen/{{ $leeftijdscategorie->id }}">
             @csrf
             @method('PUT')

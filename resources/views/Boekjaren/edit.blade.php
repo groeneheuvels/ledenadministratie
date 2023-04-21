@@ -2,7 +2,7 @@
     <div>
         <p>Bewerk boekjaar: {{ $boekjaar->jaartal }}</p>
     </div>
-    <div class="edit-formulier">
+    <div class="kaart">
         <form method="POST" action="/boekjaren/{{ $boekjaar->id }}">
             @csrf
             @method('PUT')

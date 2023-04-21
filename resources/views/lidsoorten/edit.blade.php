@@ -2,7 +2,7 @@
     <div>
         <p>Bewerk Lidsoort: {{ $lidsoort->omschrijving }}</p>
     </div>
-    <div class="edit-formulier">
+    <div class="kaart">
         <form method="POST" action="/lidsoorten/{{ $lidsoort->id }}">
             @csrf
             @method('PUT')

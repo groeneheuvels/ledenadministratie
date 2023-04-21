@@ -3,7 +3,7 @@
         <h2>Bewerk Account {{ auth()->user()->name }}</h2>
 
     </div>
-    <div class="edit-formulier">
+    <div class="kaart">
         <form method="POST" action="/users/{{ $user->id }}/edit">
             @csrf
             @method('PUT')
