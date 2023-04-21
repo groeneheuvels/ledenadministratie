@@ -78,7 +78,7 @@ class FactuurController extends Controller
     {
         $factuur->betaald = !$factuur->betaald;
         $factuur->save();
-        return redirect('/')->with('message', 'Factuur status bijgewerkt');
+        return redirect('/facturen')->with('message', 'Factuur status bijgewerkt');
     }
 
 
@@ -86,6 +86,6 @@ class FactuurController extends Controller
     public function destroy(Factuur $factuur)
     {
         $factuur->delete();
-        return redirect('/')->with('message', 'Factuur verwijderd');
+        return redirect('/facturen')->with('message', 'Factuur verwijderd');
     }
 }
