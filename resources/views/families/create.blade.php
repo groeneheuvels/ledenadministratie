@@ -1,6 +1,6 @@
 <x-layout>
     <div class="create-formulier">
-        <form method="POST" action="/families">
+        <form class="kaart" method="POST" action="/families">
             @csrf
             <div class="form-field">
                 <label for="lastname">Achternaam</label>

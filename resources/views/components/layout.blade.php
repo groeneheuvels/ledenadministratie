@@ -30,22 +30,8 @@
                         <li>
                             <a href="/users/{{ auth()->user()->id }}/edit">Welkom {{ auth()->user()->name }}</a>
                         </li>
-                        <li>
-                            <form method="POST" action="/logout">
-                                @csrf
-                                <div class="knop">
-                                    <button type="submit">
-                                        Uitloggen
-                                    </button>
-                                </div>
-                            </form>
-                        </li>
-
                         <li><a href="/families/create">Familie aanmaken</a></li>
                         <li><a href="/facturen">Facturen</a></li>
-
-
-
                         <li id="submenu-toggle">
                             <div>
                                 Instellingen &gt;
@@ -58,12 +44,23 @@
                                 </ul>
                             </div>
                         </li>
+
                     @endauth
                     @guest
                         <li><a href="/login">Admin inlog</a></li>
                     @endguest
 
                 </ul>
+                @auth
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <div class="padding">
+                            <button type="submit">
+                                Uitloggen
+                            </button>
+                        </div>
+                    </form>
+                @endauth
             </nav>
         </div>
 
