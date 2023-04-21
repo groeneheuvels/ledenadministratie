@@ -1,6 +1,6 @@
 <div class="kaart">
     <h3>
-        <a href="/families/{{ $familie->id }}"> {{ $familie->lastname }}</a>
+        <a href="/families/{{ $familie->id }}"> Familie {{ $familie->lastname }}</a>
     </h3>
     <p>{{ $familie->address }}</p>
     <p>{{ $familie->postcode }} {{ $familie->city }}</p>
