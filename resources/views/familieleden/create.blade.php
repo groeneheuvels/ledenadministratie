@@ -2,9 +2,9 @@
 
 
 <x-layout>
-    <h1>Familie {{ $familie->lastname }}</h1>
-    <div class="create-formulier">
-        <form method="POST" action="/familieleden">
+    <h2>Familie {{ $familie->lastname }}</h2>
+    <div class="kaart-container">
+        <form class=kaart method="POST" action="/familieleden">
             @csrf
             <div>
                 <input type="hidden" name="familie_id" value="{{ $familie->id }}">
@@ -37,10 +37,12 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
-            <button>
-                Opslaan
-            </button>
-            <a class="knop" href="/families/{{ $familie['id'] }}"> Terug </a>
+            <div class="form-field">
+                <button>
+                    Opslaan
+                </button>
+            </div>
+            <div class="form-field"><a class="knop" href="/families/{{ $familie['id'] }}"> Terug </a></div>
         </form>
     </div>
 </x-layout>

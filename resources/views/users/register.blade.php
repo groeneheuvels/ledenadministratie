@@ -52,12 +52,6 @@
                         Registreer
                     </button>
                 </div>
-                <div>
-                    <p>
-                        Heb je al een account?
-                        <a href="/login">Login</a>
-                    </p>
-                </div>
             </form>
         </div>
     </div>
