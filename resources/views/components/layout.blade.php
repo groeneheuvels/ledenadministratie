@@ -30,18 +30,19 @@
                     </h2>
                 @endauth
                 <ul class="menu">
+                    <li>
+                        <a href="/">Families</a>
+                    </li>
 
                     @auth
-                        <li>
-                            <a href="/users/{{ auth()->user()->id }}/edit">Mijn account bewerken</a>
-                        </li>
                         <li><a href="/families/create">Familie aanmaken</a></li>
+
                         <li><a href="/facturen">Facturen</a></li>
                         <li id="submenu-toggle">
                             <div>
                                 Instellingen
                                 <ul id="submenu">
-                                    {{-- <li><a href="/users">Admin accounts bewerken</a></li> --}}
+                                    <li> <a href="/users/{{ auth()->user()->id }}/edit">Mijn account bewerken</a> </li>
                                     <li><a href="/register">Admin account aanmaken</a></li>
                                     <li><a href="/lidsoorten">Lidsoorten</a></li>
                                     <li><a href="/leeftijdscategorieen">Leeftijdscategorieën</a></li>
