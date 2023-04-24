@@ -1,6 +1,3 @@
-{{--  props gebruiken? --}}
-
-
 <x-layout>
     <h2>Familie {{ $familie->lastname }}</h2>
     <div class="kaart-container">
@@ -14,7 +11,6 @@
                 <input type="text" name="firstname" value="{{ old('firstname') }}" />
                 @error('firstname')
                     <p>{{ $message }}</p>
-                    {{-- bericht is in engels evt aanpassen --}}
                 @enderror
             </div>
             <div class="form-field">
