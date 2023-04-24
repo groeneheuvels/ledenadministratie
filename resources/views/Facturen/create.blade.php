@@ -1,7 +1,7 @@
 <x-layout>
     <h2>Factuur aanmaken</h2>
-    <div class="create-formulier">
-        <form method="POST" action="/facturen">
+    <div class="kaart-container">
+        <form class=kaart method="POST" action="/facturen">
             @csrf
             <div class="form-field">
                 <label for="familie">Maak factuur aan voor familie: </label>
@@ -27,12 +27,16 @@
                     <p>{{ $message }}</p>
                 @enderror
             </div>
+            <div class="form-field">
+                <button>
+                    Opslaan
+                </button>
+            </div>
+
+            <a class="knop" href="/facturen"> Terug </a>
 
     </div>
-    <button>
-        Opslaan
-    </button>
-    <a class="knop" href="/facturen"> Terug </a>
+
     </form>
     </div>
 
