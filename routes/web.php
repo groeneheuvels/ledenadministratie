@@ -150,8 +150,6 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])->middleware('a
 // Update User
 Route::put('/users/{user}/edit', [UserController::class, 'update'])->middleware('auth');
 
-
-
 // Log User out
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 

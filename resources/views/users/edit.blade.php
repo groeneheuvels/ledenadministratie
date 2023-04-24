@@ -30,7 +30,7 @@
                     <label for="password">
                         Nieuw wachtwoord
                     </label>
-                    <input type="password" name="password" value="{{ $user->password }}" />
+                    <input type="password" name="password" />
                     @error('password')
                         <p>{{ $message }}</p>
                     @enderror
@@ -39,7 +39,7 @@
                     <label for="password_confirmation">
                         Bevestig nieuw wachtwoord
                     </label>
-                    <input type="password" name="password_confirmation" value="{{ $user->password }}" />
+                    <input type="password" name="password_confirmation" />
                     @error('password_confirmation')
                         <p>{{ $message }}</p>
                     @enderror

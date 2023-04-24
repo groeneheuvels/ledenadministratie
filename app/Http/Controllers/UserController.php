@@ -48,8 +48,19 @@ class UserController extends Controller
         $formFields = $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required|confirmed | min:6'
+            'password' => 'nullable| confirmed | min:6'
         ]);
+
+        // Hash Password
+        if (
+            empty($formFields['password'])
+        ) {
+            unset($formFields['password']);
+        } else {
+            $formFields['password'] = bcrypt($formFields['password']);
+
+        }
+
 
         $user->update($formFields);
 
